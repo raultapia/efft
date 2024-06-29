@@ -1,0 +1,32 @@
+name: Test
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Dependencies
+        run: |
+              sudo apt install libgtest-dev
+              sudo apt install libeigen3-dev
+              sudo apt install fftw3-dev
+
+      - name: Build
+        run: |
+              git clone https://github.com/raultapia/efft
+              mkdir -p efft/build
+              cd efft/build
+              cmake ..
+              make
+
+      - name: Test
+        run: |
+              cd efft/build
+              make test

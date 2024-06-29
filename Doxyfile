@@ -1,0 +1,8 @@
+PROJECT_NAME           = eFFT
+PROJECT_BRIEF          = "An efficient method for the calculation of the exact Fourier transform of an asynchronous event stream"
+USE_MDFILE_AS_MAINPAGE = ./README.md
+EXCLUDE_PATTERNS       = */tests/*
+GENERATE_HTML          = YES
+USE_MATHJAX            = YES
+RECURSIVE              = YES
+OUTPUT_DIRECTORY       = ./docs/
