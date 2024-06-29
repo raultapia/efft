@@ -102,8 +102,7 @@ $(function(){ initResizable(false); });
 <dl class="section note"><dt>Note</dt><dd><a href="https://fftw.org/">FFTW3</a> served as the benchmark for testing and evaluation. To enable it, define <code>EFFT_USE_FFTW3</code> during compilation (e.g., <code>-DEFFT_USE_FFTW3</code>).</dd></dl>
 <h2><a class="anchor" id="autotoc_md1"></a>
 🖥️ Usage</h2>
-<p>Here's a minimal working example: </p><div class="fragment"><div class="line"> ++</div>
-<div class="line"><a class="code hl_class" href="classeFFT.html">eFFT&lt;128&gt;</a> efft;           <span class="comment">// Instance</span></div>
+<p>Here's a minimal working example: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classeFFT.html">eFFT&lt;128&gt;</a> efft;           <span class="comment">// Instance</span></div>
 <div class="line">efft.<a class="code hl_function" href="classeFFT.html#a00a7ca899559f09fb119036886710b14">initialize</a>();        <span class="comment">// Initialization</span></div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_class" href="classStimulus.html">Stimulus</a> e(1, 1, <span class="keyword">true</span>);   <span class="comment">// Event insertion</span></div>
@@ -115,8 +114,7 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aclasseFFT_html_a00a7ca899559f09fb119036886710b14"><div class="ttname"><a href="classeFFT.html#a00a7ca899559f09fb119036886710b14">eFFT::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Initializes the FFT computation with zero matrix.</div><div class="ttdef"><b>Definition</b> efft.hpp:122</div></div>
 <div class="ttc" id="aclasseFFT_html_a0dce88356a55655c568307b5f12d58fe"><div class="ttname"><a href="classeFFT.html#a0dce88356a55655c568307b5f12d58fe">eFFT::update</a></div><div class="ttdeci">bool update(const Stimulus &amp;p)</div><div class="ttdoc">Updates the FFT with a single stimulus.</div><div class="ttdef"><b>Definition</b> efft.hpp:182</div></div>
 <div class="ttc" id="aclasseFFT_html_a16f1812c08050832fca6245841d9d568"><div class="ttname"><a href="classeFFT.html#a16f1812c08050832fca6245841d9d568">eFFT::getFFT</a></div><div class="ttdeci">Eigen::Matrix&lt; cfloat, N, N &gt; getFFT() const</div><div class="ttdoc">Get the FFT result as an Eigen matrix of complex floats.</div><div class="ttdef"><b>Definition</b> efft.hpp:386</div></div>
-</div><!-- fragment --><p>And another example handling event packets: </p><div class="fragment"><div class="line"> ++</div>
-<div class="line"><a class="code hl_class" href="classeFFT.html">eFFT&lt;128&gt;</a> efft;                   <span class="comment">// Instance</span></div>
+</div><!-- fragment --><p>And another example handling event packets: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classeFFT.html">eFFT&lt;128&gt;</a> efft;                   <span class="comment">// Instance</span></div>
 <div class="line">efft.<a class="code hl_function" href="classeFFT.html#a00a7ca899559f09fb119036886710b14">initialize</a>();                <span class="comment">// Initialization</span></div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_class" href="classStimuli.html">Stimuli</a> events;</div>
