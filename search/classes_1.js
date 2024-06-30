@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['randeventgenerator_0',['RandEventGenerator',['../classRandEventGenerator.html',1,'']]]
+  ['stimuli_0',['Stimuli',['../classStimuli.html',1,'']]],
+  ['stimulus_1',['Stimulus',['../classStimulus.html',1,'']]]
 ];

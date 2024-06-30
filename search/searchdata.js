@@ -1,7 +1,7 @@
 var indexSectionsWithContent =
 {
-  0: "cefgilrsu⚙📜📝📬🖥",
-  1: "ers",
+  0: "cefgilsu⚙📜📝📬🖥",
+  1: "es",
   2: "e",
   3: "fgisu",
   4: "e"
