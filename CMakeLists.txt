@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20.0)
 project(efft)
 
-find_package(Eigen3 REQUIRED)
+find_package(Eigen3 3.4.0 REQUIRED)
 
 include(GoogleTest)
 enable_testing()
