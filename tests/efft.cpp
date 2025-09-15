@@ -201,8 +201,3 @@ TEST_P(eFFTTest, FeedWithTheSamePacket) {
 
 INSTANTIATE_TEST_CASE_P(eFFTWithPackets, eFFTTest, ::testing::Values(1, 10, 100, 1000, 10000));
 #endif
-
-int main(int argc, char **argv) {
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}
