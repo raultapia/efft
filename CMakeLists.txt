@@ -7,7 +7,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Eigen3 3.4.0 REQUIRED)
 
-include(GoogleTest)
+include(GoogleTest REQUIRED)
 enable_testing()
 add_executable(efft-unit-tests ${PROJECT_SOURCE_DIR}/tests/efft.cpp)
 target_link_libraries(efft-unit-tests PRIVATE gtest gtest_main pthread)
