@@ -8,14 +8,16 @@ We introduce eFFT, an efficient method for the calculation of the exact Fourier 
 </p>
 
 ## ⚙️ Installation
+
 eFFT is provided as a header-only file for easy integration and relies solely on C++ standard and [Eigen3](https://eigen.tuxfamily.org/) libraries.
 
-> [!NOTE]
+> **Note:**
 > [FFTW3](https://fftw.org/) served as the benchmark for testing and evaluation. To enable it, define `EFFT_USE_FFTW3` during compilation (e.g., `-DEFFT_USE_FFTW3`).
 
-
 ## 🖥️ Usage
+
 Here's a minimal working example:
+
 ```cpp
 eFFT<128> efft;           // Instance
 efft.initialize();        // Initialization
@@ -27,6 +29,7 @@ efft.getFFT();            // Get result as Eigen matrix
 ```
 
 And another example handling event packets:
+
 ```cpp
 eFFT<128> efft;                   // Instance
 efft.initialize();                // Initialization
