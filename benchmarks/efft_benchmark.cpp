@@ -2,7 +2,7 @@
 #include <benchmark/benchmark.h>
 #include <random>
 
-constexpr unsigned int NTEST = 25;
+constexpr unsigned int NTEST = 250;
 
 template <unsigned int N>
 class RandEventGenerator {
@@ -25,21 +25,62 @@ private:
 };
 
 template <unsigned int FRAME_SIZE>
-static void BenchmarkFeedWithEvents(benchmark::State &state) {
+static void BenchmarkFeedWithEventsFFTW(benchmark::State &state) {
   eFFT<FRAME_SIZE> efft;
+  efft.initializeGroundTruth();
   RandEventGenerator<FRAME_SIZE> rand;
 
   Stimulus s;
   for(auto _ : state) {
-    efft.initialize();
     for(unsigned int test = 0; test < NTEST; test++) {
-      efft.update(s);
       s = rand.next();
+      efft.updateGroundTruth(s);
+      [[maybe_unused]] auto result = efft.getGroundTruthFFT();
     }
   }
 }
-BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 4);
-BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 8);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 16);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 32);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 64);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 128);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 256);
+
+template <unsigned int FRAME_SIZE>
+static void BenchmarkFeedWithPacketsFFTW(benchmark::State &state) {
+  eFFT<FRAME_SIZE> efft;
+  efft.initializeGroundTruth();
+  RandEventGenerator<FRAME_SIZE> rand;
+
+  Stimuli ss;
+  for(auto _ : state) {
+    for(unsigned int test = 0; test < NTEST; test++) {
+      ss = rand.next(state.range(0));
+      efft.updateGroundTruth(ss);
+      [[maybe_unused]] auto result = efft.getGroundTruthFFT();
+    }
+  }
+}
+BENCHMARK_TEMPLATE(BenchmarkFeedWithPacketsFFTW, 16)->Arg(10)->Arg(100)->Arg(1000);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithPacketsFFTW, 32)->Arg(10)->Arg(100)->Arg(1000);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithPacketsFFTW, 64)->Arg(10)->Arg(100)->Arg(1000);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithPacketsFFTW, 128)->Arg(10)->Arg(100)->Arg(1000);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithPacketsFFTW, 256)->Arg(10)->Arg(100)->Arg(1000);
+
+template <unsigned int FRAME_SIZE>
+static void BenchmarkFeedWithEvents(benchmark::State &state) {
+  eFFT<FRAME_SIZE> efft;
+  efft.initialize();
+  RandEventGenerator<FRAME_SIZE> rand;
+
+  Stimulus s;
+  for(auto _ : state) {
+    for(unsigned int test = 0; test < NTEST; test++) {
+      s = rand.next();
+      efft.update(s);
+      [[maybe_unused]] auto result = efft.getFFT();
+    }
+  }
+}
 BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 16);
 BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 32);
 BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 64);
@@ -49,13 +90,15 @@ BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 256);
 template <unsigned int FRAME_SIZE>
 static void BenchmarkFeedWithPackets(benchmark::State &state) {
   eFFT<FRAME_SIZE> efft;
+  efft.initialize();
   RandEventGenerator<FRAME_SIZE> rand;
 
-  Stimuli ss = rand.next(state.range(0));
+  Stimuli ss;
   for(auto _ : state) {
-    efft.initialize();
     for(unsigned int test = 0; test < NTEST; test++) {
+      ss = rand.next(state.range(0));
       efft.update(ss);
+      [[maybe_unused]] auto result = efft.getFFT();
     }
   }
 }

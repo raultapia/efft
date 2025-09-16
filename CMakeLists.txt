@@ -16,6 +16,20 @@ target_include_directories(efft-tests PRIVATE include)
 target_compile_definitions(efft-tests PRIVATE EIGEN_STACK_ALLOCATION_LIMIT=0)
 target_compile_definitions(efft-tests PRIVATE EFFT_USE_FFTW3)
 gtest_discover_tests(efft-tests)
+target_compile_options(
+  efft-tests
+  PRIVATE -O3
+          -march=native
+          -flto
+          -funroll-loops
+          -finline-functions
+          -fomit-frame-pointer
+          -ffast-math
+          -DNDEBUG
+          -Wall
+          -Wextra
+          -Wpedantic
+          -Wfatal-errors)
 
 find_package(benchmark)
 add_executable(efft-benchmarks ${PROJECT_SOURCE_DIR}/benchmarks/efft_benchmark.cpp)
@@ -24,6 +38,20 @@ target_link_libraries(efft-benchmarks PRIVATE fftw3)
 target_include_directories(efft-benchmarks PRIVATE include)
 target_compile_definitions(efft-benchmarks PRIVATE EIGEN_STACK_ALLOCATION_LIMIT=0)
 target_compile_definitions(efft-benchmarks PRIVATE EFFT_USE_FFTW3)
+target_compile_options(
+  efft-benchmarks
+  PRIVATE -O3
+          -march=native
+          -flto
+          -funroll-loops
+          -finline-functions
+          -fomit-frame-pointer
+          -ffast-math
+          -DNDEBUG
+          -Wall
+          -Wextra
+          -Wpedantic
+          -Wfatal-errors)
 add_custom_target(
   benchmark
   COMMAND efft-benchmarks
