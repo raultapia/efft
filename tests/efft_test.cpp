@@ -99,7 +99,7 @@ class eFFTTest : public ::testing::TestWithParam<unsigned int> {
 };
 
 template <unsigned int FRAME_SIZE>
-void FeedWithEvents() {
+static void FeedWithEvents() {
   eFFT<FRAME_SIZE> efft;
   RandEventGenerator<FRAME_SIZE> rand;
 
@@ -127,7 +127,7 @@ TEST(eFFTTest, FeedWithEvents) {
 }
 
 template <unsigned int FRAME_SIZE>
-void FeedWithTheSameEvent() {
+static void FeedWithTheSameEvent() {
   eFFT<FRAME_SIZE> efft;
   RandEventGenerator<FRAME_SIZE> rand;
   const Stimulus s = rand.next(true);
@@ -154,7 +154,7 @@ TEST(eFFTTest, FeedWithTheSameEvent) {
 }
 
 template <unsigned int FRAME_SIZE>
-void FeedWithPackets(const unsigned int PACKET_SIZE) {
+static void FeedWithPackets(const unsigned int PACKET_SIZE) {
   eFFT<FRAME_SIZE> efft;
   RandEventGenerator<FRAME_SIZE> rand;
 
@@ -184,7 +184,7 @@ TEST_P(eFFTTest, FeedWithPackets) {
 }
 
 template <unsigned int FRAME_SIZE>
-void FeedWithTheSamePacket(const unsigned int PACKET_SIZE) {
+static void FeedWithTheSamePacket(const unsigned int PACKET_SIZE) {
   eFFT<FRAME_SIZE> efft;
   RandEventGenerator<FRAME_SIZE> rand;
   const Stimuli ss = rand.next(PACKET_SIZE, true);
