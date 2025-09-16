@@ -16,3 +16,16 @@ target_include_directories(efft-tests PRIVATE include)
 target_compile_definitions(efft-tests PRIVATE EIGEN_STACK_ALLOCATION_LIMIT=0)
 target_compile_definitions(efft-tests PRIVATE EFFT_USE_FFTW3)
 gtest_discover_tests(efft-tests)
+
+find_package(benchmark)
+add_executable(efft-benchmarks ${PROJECT_SOURCE_DIR}/benchmarks/efft_benchmark.cpp)
+target_link_libraries(efft-benchmarks PRIVATE benchmark::benchmark pthread)
+target_link_libraries(efft-benchmarks PRIVATE fftw3)
+target_include_directories(efft-benchmarks PRIVATE include)
+target_compile_definitions(efft-benchmarks PRIVATE EIGEN_STACK_ALLOCATION_LIMIT=0)
+target_compile_definitions(efft-benchmarks PRIVATE EFFT_USE_FFTW3)
+add_custom_target(
+  benchmark
+  COMMAND efft-benchmarks
+  DEPENDS efft-benchmarks
+  COMMENT "Running eFFT benchmarks")
