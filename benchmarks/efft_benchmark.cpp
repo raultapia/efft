@@ -13,7 +13,7 @@ public:
   }
   Stimuli next(unsigned int n) {
     Stimuli ret;
-    while(n--) {
+    while(static_cast<bool>(n--)) {
       ret.emplace_back(next());
     }
     return ret;
