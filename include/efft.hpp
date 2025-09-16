@@ -358,7 +358,7 @@ public:
    * @param image A complex float matrix to initialize the FFT input. Defaults to a zero matrix.
    */
   void initializeGroundTruth(const cfloatmat &image = cfloatmat::Zero(N, N)) {
-    plan_ = fftw_plan_dft_2d(N, N, fftwInput_.data(), fftwOutput_.data(), FFTW_FORWARD, FFTW_ESTIMATE | FFTW_UNALIGNED);
+    plan_ = fftw_plan_dft_2d(N, N, fftwInput_.data(), fftwOutput_.data(), FFTW_FORWARD, FFTW_ESTIMATE | FFTW_UNALIGNED | FFTW_NO_SIMD | FFTW_PRESERVE_INPUT);
     for(Eigen::Index i = 0; i < image.rows(); i++) {
       for(Eigen::Index j = 0; j < image.cols(); j++) {
         fftwInput_[N * i + j][0] = image(i, j).real();
