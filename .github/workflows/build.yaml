@@ -29,4 +29,9 @@ jobs:
       - name: Test
         run: |
           cd efft/build
-          ctest
+          make test
+
+      - name: Benchmark
+        run: |
+          cd efft/build
+          make benchmark
