@@ -9,7 +9,7 @@ find_package(Eigen3 3.4.0 REQUIRED)
 
 include(GoogleTest)
 enable_testing()
-add_executable(efft-tests ${PROJECT_SOURCE_DIR}/tests/efft.cpp)
+add_executable(efft-tests ${PROJECT_SOURCE_DIR}/tests/efft_test.cpp)
 target_link_libraries(efft-tests PRIVATE gtest gtest_main pthread)
 target_link_libraries(efft-tests PRIVATE fftw3)
 target_include_directories(efft-tests PRIVATE include)
