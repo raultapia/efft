@@ -15,6 +15,7 @@
 #include <complex>
 #include <cstddef>
 #include <eigen3/Eigen/Core>
+#include <ostream>
 #include <set>
 #include <utility>
 #include <vector>
@@ -48,6 +49,10 @@ public:
   Stimulus &toggle() {
     state = !state;
     return *this;
+  }
+  friend std::ostream &operator<<(std::ostream &os, const Stimulus &stimulus) {
+    os << "Stimulus(row: " << stimulus.row << ", col: " << stimulus.col << ", state: " << (stimulus.state ? "on" : "off") << ")";
+    return os;
   }
 };
 

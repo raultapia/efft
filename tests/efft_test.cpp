@@ -1,6 +1,8 @@
 #include "efft.hpp"
 #include <gtest/gtest.h>
 #include <random>
+#include <sstream>
+#include <string>
 
 constexpr unsigned int NTEST = 25;
 
@@ -43,6 +45,19 @@ TEST(StimulusTest, Equality) {
   ASSERT_EQ(s1, s2);
   ASSERT_EQ(s1, s3);
   ASSERT_NE(s1, s4);
+}
+
+TEST(StimulusTest, OutputStream) {
+  const Stimulus s1(123, 456, true);
+  const Stimulus s2(789, 101, false);
+
+  std::ostringstream oss1;
+  oss1 << s1;
+  ASSERT_EQ(oss1.str(), std::string("Stimulus(row: 123, col: 456, state: on)"));
+
+  std::ostringstream oss2;
+  oss2 << s2;
+  ASSERT_EQ(oss2.str(), std::string("Stimulus(row: 789, col: 101, state: off)"));
 }
 
 TEST(StimuliTest, Filter) {
