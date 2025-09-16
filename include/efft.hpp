@@ -33,6 +33,22 @@ public:
   Stimulus(const unsigned int row, const unsigned int col, const bool state) : row{row}, col{col}, state{state} {};
   bool operator==(const Stimulus &p) const { return (row == p.row && col == p.col); }
   bool operator!=(const Stimulus &p) const { return (row != p.row || col != p.col); }
+  Stimulus &on() {
+    state = true;
+    return *this;
+  }
+  Stimulus &off() {
+    state = false;
+    return *this;
+  }
+  Stimulus &set(const bool s) {
+    state = s;
+    return *this;
+  }
+  Stimulus &toggle() {
+    state = !state;
+    return *this;
+  }
 };
 
 class Stimuli : public std::vector<Stimulus> {
