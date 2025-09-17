@@ -17,6 +17,8 @@
 #include <eigen3/Eigen/Core>
 #include <ostream>
 #include <set>
+#include <stdint.h>
+#include <unordered_map>
 #include <utility>
 #include <vector>
 
@@ -59,6 +61,10 @@ public:
 class Stimuli : public std::vector<Stimulus> {
   using std::vector<Stimulus>::vector;
 
+  static inline uint64_t pack(int row, int col) {
+    return (static_cast<uint64_t>(static_cast<uint32_t>(row)) << 32) | static_cast<uint32_t>(col);
+  }
+
 public:
   void on() {
     std::for_each(begin(), end(), [](Stimulus &stimulus) { stimulus.state = true; });
@@ -78,16 +84,24 @@ public:
    * @note This method is provided only for convenience.
    */
   void filter() {
-    std::sort(begin(), end(), [](const Stimulus &left, const Stimulus &right) {
-      if(left.row != right.row) {
-        return left.row < right.row;
+    std::vector<Stimulus> out;
+    std::unordered_map<uint64_t, size_t> pos;
+    out.reserve(size());
+    pos.reserve(size() * 2);
+
+    for(const auto &s : *this) {
+      uint64_t key = pack(s.row, s.col);
+      auto [it, inserted] = pos.emplace(key, out.size());
+      if(inserted) {
+        out.emplace_back(s);
+      } else {
+        auto &chosen = out[it->second];
+        if(s.state && !chosen.state) {
+          chosen = s; // prefer state true over false
+        }
       }
-      if(left.col != right.col) {
-        return left.col < right.col;
-      }
-      return left.state && !right.state;
-    });
-    resize(std::unique(begin(), end(), [](const Stimulus &left, const Stimulus &right) { return (left.row == right.row && left.col == right.col); }) - begin());
+    }
+    this->assign(out.begin(), out.end());
   }
 };
 
