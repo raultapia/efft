@@ -60,8 +60,8 @@ static void BenchmarkFeedWithPacketsFFTW(benchmark::State &state) {
     }
   }
 }
-BENCHMARK_TEMPLATE(BenchmarkFeedWithPacketsFFTW, 128)->Arg(1000)->Arg(10000)->Arg(100000)->Iterations(50);
-BENCHMARK_TEMPLATE(BenchmarkFeedWithPacketsFFTW, 256)->Arg(1000)->Arg(10000)->Arg(100000)->Iterations(50);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithPacketsFFTW, 128)->Arg(1000)->Arg(5000)->Arg(10000)->Arg(50000)->Arg(100000)->Arg(500000)->Iterations(10);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithPacketsFFTW, 256)->Arg(1000)->Arg(5000)->Arg(10000)->Arg(50000)->Arg(100000)->Arg(500000)->Iterations(10);
 
 template <unsigned int FRAME_SIZE>
 static void BenchmarkFeedWithEvents(benchmark::State &state) {
@@ -99,7 +99,7 @@ static void BenchmarkFeedWithPackets(benchmark::State &state) {
     }
   }
 }
-BENCHMARK_TEMPLATE(BenchmarkFeedWithPackets, 128)->Arg(1000)->Arg(10000)->Arg(100000)->Iterations(50);
-BENCHMARK_TEMPLATE(BenchmarkFeedWithPackets, 256)->Arg(1000)->Arg(10000)->Arg(100000)->Iterations(50);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithPackets, 128)->Arg(1000)->Arg(5000)->Arg(10000)->Arg(50000)->Arg(100000)->Arg(500000)->Iterations(10);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithPackets, 256)->Arg(1000)->Arg(5000)->Arg(10000)->Arg(50000)->Arg(100000)->Arg(500000)->Iterations(10);
 
 BENCHMARK_MAIN();
