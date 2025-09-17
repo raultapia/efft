@@ -83,12 +83,12 @@ TEST(StimuliTest, State) {
   ss.emplace_back(141, 451, true);
   ss.emplace_back(231, 331, false);
 
-  ss.setState(true);
+  ss.set(true);
   for(const Stimulus s : ss) {
     ASSERT_EQ(s.state, true);
   }
 
-  ss.setState(false);
+  ss.set(false);
   for(const Stimulus s : ss) {
     ASSERT_EQ(s.state, false);
   }

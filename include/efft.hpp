@@ -60,6 +60,19 @@ class Stimuli : public std::vector<Stimulus> {
   using std::vector<Stimulus>::vector;
 
 public:
+  void on() {
+    std::for_each(begin(), end(), [](Stimulus &stimulus) { stimulus.state = true; });
+  }
+  void off() {
+    std::for_each(begin(), end(), [](Stimulus &stimulus) { stimulus.state = false; });
+  }
+  void set(const bool state) {
+    std::for_each(begin(), end(), [state](Stimulus &stimulus) { stimulus.state = state; });
+  }
+  void toggle() {
+    std::for_each(begin(), end(), [](Stimulus &stimulus) { stimulus.state = !stimulus.state; });
+  }
+
   /**
    * @brief Filters out stimuli.
    * @note This method is provided only for convenience.
@@ -75,14 +88,6 @@ public:
       return left.state && !right.state;
     });
     resize(std::unique(begin(), end(), [](const Stimulus &left, const Stimulus &right) { return (left.row == right.row && left.col == right.col); }) - begin());
-  }
-
-  /**
-   * @brief Sets the state of all stimuli in the container.
-   * @note This method is provided only for convenience.
-   */
-  void setState(const bool state) {
-    std::transform(begin(), end(), begin(), [state](Stimulus &p) { p.state = state; return p; });
   }
 };
 
