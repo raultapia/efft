@@ -318,10 +318,17 @@ public:
     e2 = std::partition(b0, e0, [](const Stimulus &p) { return p.row & 1U; });
     e1 = std::partition(b0, e2, [](const Stimulus &p) { return p.col & 1U; });
     e3 = std::partition(e2, e0, [](const Stimulus &p) { return p.col & 1U; });
-    std::transform(b0, e1, b0, [](const Stimulus &p) { return Stimulus{p.row >> 1U, p.col >> 1U, p.state}; });
-    std::transform(e1, e2, e1, [](const Stimulus &p) { return Stimulus{p.row >> 1U, p.col >> 1U, p.state}; });
-    std::transform(e2, e3, e2, [](const Stimulus &p) { return Stimulus{p.row >> 1U, p.col >> 1U, p.state}; });
-    std::transform(e3, e0, e3, [](const Stimulus &p) { return Stimulus{p.row >> 1U, p.col >> 1U, p.state}; });
+
+    auto transformStimuli = [](Stimuli::iterator begin, Stimuli::iterator end) {
+      for(auto it = begin; it != end; ++it) {
+        it->row >>= 1U;
+        it->col >>= 1U;
+      }
+    };
+    transformStimuli(b0, e1);
+    transformStimuli(e1, e2);
+    transformStimuli(e2, e3);
+    transformStimuli(e3, e0);
 
     bool changed = false;
     if(b0 != e1) {
