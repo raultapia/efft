@@ -16,7 +16,6 @@
 #include <cstddef>
 #include <eigen3/Eigen/Core>
 #include <ostream>
-#include <set>
 #include <stdint.h>
 #include <unordered_map>
 #include <utility>
@@ -24,6 +23,7 @@
 
 #ifdef EFFT_USE_FFTW3
 #include <fftw3.h>
+#include <set>
 #endif
 
 class Stimulus {
