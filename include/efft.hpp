@@ -157,6 +157,14 @@ public:
   eFFT &operator=(eFFT &&) noexcept = default;
 
   /**
+   * @brief Get the frame size of the FFT.
+   * @return The frame size as an unsigned integer.
+   */
+  [[nodiscard]] constexpr unsigned int framesize() const {
+    return N;
+  }
+
+  /**
    * @brief Initializes the FFT computation with zero matrix.
    */
   void initialize() {
