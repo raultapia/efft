@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "efft"
+version = "1.0.0"
+description = "A Python binding for the eFFT library"
+authors = [{ name = "Raul Tapia", email = "raultapia@us.es" }]
+urls = { homepage = "https://github.com/raultapia/efft", repository = "https://github.com/raultapia/efft" }
+requires-python = ">=3.7"
+license = { text = "GPLv3" }
+dependencies = []
+optional-dependencies = { test = ["pytest", "numpy"] }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+efft = ["*.so"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

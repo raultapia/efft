@@ -45,6 +45,37 @@ efft.getFFT();                    // Get result as Eigen matrix
 
 Please refer to the [official documentation](https://raultapia.github.io/efft/) for more details.
 
+## 🐍 Python Bindings
+
+The eFFT library also provides Python bindings for seamless integration into Python-based workflows. These bindings are built using [nanobind](https://github.com/wjakob/nanobind) and offer the same functionality as the C++ library. You can build and install the bindings using the following commands:
+
+```bash
+cd python
+cmake -S . -B build && cmake --build build && cmake --install build
+pip install .
+```
+
+Here's an example of how to use the Python bindings:
+
+```python
+from efft import Stimulus, Stimuli, eFFT
+
+efft = eFFT(128)                  # Create an eFFT instance with a frame size of 128
+efft.initialize()
+
+event = Stimulus(1, 1, True)      # Insert a single event
+efft.update(event)
+
+fft_result = efft.get_fft()       # Retrieve the FFT result
+
+events = Stimuli()                # Insert multiple events
+events.append(Stimulus(2, 2, True))
+events.append(Stimulus(3, 3, False))
+efft.update(events)
+
+fft_result = efft.get_fft()       # Retrieve the updated FFT result
+```
+
 ## 📜 Citation
 
 If you use this work in an academic context, please cite the following publication:
