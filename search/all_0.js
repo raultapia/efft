@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['citation_0',['📜 Citation',['../index.html#autotoc_md2',1,'']]],
-  ['contact_1',['📬 Contact',['../index.html#autotoc_md4',1,'']]]
+  ['bindings_0',['Bindings',['../index.html#autotoc_md2',1,'🐍 Python Bindings'],['../structBindings.html',1,'Bindings&lt; N &gt;']]]
 ];

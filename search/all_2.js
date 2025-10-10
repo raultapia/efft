@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['filter_0',['filter',['../classStimuli.html#a831c0fd68276f5dd7c454225334d23ad',1,'Stimuli']]]
+  ['efft_0',['eFFT',['../classeFFT.html',1,'eFFT&lt; N &gt;'],['../index.html',1,'eFFT']]],
+  ['efft_2ehpp_1',['efft.hpp',['../efft_8hpp.html',1,'']]]
 ];

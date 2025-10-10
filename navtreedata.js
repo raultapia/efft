@@ -22,14 +22,34 @@
 
  @licend  The above is the entire license notice for the JavaScript code in this file
 */
-var menudata={children:[
-{text:"Main Page",url:"index.html"},
-{text:"Classes",url:"annotated.html",children:[
-{text:"Class List",url:"annotated.html"},
-{text:"Class Index",url:"classes.html"},
-{text:"Class Hierarchy",url:"hierarchy.html"},
-{text:"Class Members",url:"functions.html",children:[
-{text:"All",url:"functions.html"},
-{text:"Functions",url:"functions_func.html"}]}]},
-{text:"Files",url:"files.html",children:[
-{text:"File List",url:"files.html"}]}]}
+var NAVTREE =
+[
+  [ "eFFT", "index.html", [
+    [ "Classes", "annotated.html", [
+      [ "⚙️ Installation", "index.html#autotoc_md0", null ],
+      [ "🖥️ Usage", "index.html#autotoc_md1", null ],
+      [ "🐍 Python Bindings", "index.html#autotoc_md2", null ],
+      [ "📜 Citation", "index.html#autotoc_md3", null ],
+      [ "📝 License", "index.html#autotoc_md4", null ],
+      [ "📬 Contact", "index.html#autotoc_md5", null ],
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ]
+      ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ]
+    ] ]
+  ] ]
+];
+
+var NAVTREEINDEX =
+[
+"annotated.html"
+];
+
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';

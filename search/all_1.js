@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['efft_0',['eFFT',['../classeFFT.html',1,'eFFT&lt; N &gt;'],['../index.html',1,'eFFT']]],
-  ['efft_2ehpp_1',['efft.hpp',['../efft_8hpp.html',1,'']]]
+  ['citation_0',['📜 Citation',['../index.html#autotoc_md3',1,'']]],
+  ['contact_1',['📬 Contact',['../index.html#autotoc_md5',1,'']]]
 ];

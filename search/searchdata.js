@@ -1,9 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "cefgilsu⚙📜📝📬🖥",
-  1: "es",
+  0: "bcefgilprsu⚙🐍📜📝📬🖥",
+  1: "bers",
   2: "e",
-  3: "fgisu",
+  3: "fgiu",
   4: "e"
 };
 
