@@ -90,9 +90,9 @@ If you use this work in an academic context, please cite the following publicati
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
   title={{eFFT}: An Event-based Method for the Efficient Computation of Exact {Fourier} Transforms},
   year={2024},
-  volume={0},
-  number={0},
-  pages={0000-0000},
+  volume={46},
+  number={12},
+  pages={9630-9647},
   doi={10.1109/TPAMI.2024.3422209}
 }
 ```
