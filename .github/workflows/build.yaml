@@ -42,6 +42,8 @@ jobs:
           sudo apt -y install python3
           sudo apt -y install python3-pip
           python3 -m pip install --upgrade pip setuptools wheel
-          cmake -S . -B build && cmake --build build && cmake --install build
+          cmake -S . -B build
+          cmake --build build
+          cmake --install build
           python3 -m pip install .[test]
           python3 -m pytest --verbose
