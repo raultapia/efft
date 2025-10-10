@@ -7,8 +7,8 @@ RUN apt -y install cmake
 RUN apt -y install git
 RUN apt -y install libeigen3-dev
 RUN apt -y install libfftw3-dev
-RUN apt -y install libbenchmark-dev
 RUN apt -y install libgtest-dev
+RUN apt -y install libbenchmark-dev
 RUN apt -y install python3
 RUN apt -y install python3-pip
 
