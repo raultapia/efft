@@ -39,11 +39,11 @@ static void BenchmarkFeedWithEventsFFTW(benchmark::State &state) {
     }
   }
 }
-// BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 16);
-// BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 32);
-// BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 64);
-// BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 128);
-// BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 256);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 16);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 32);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 64);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 128);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEventsFFTW, 256);
 
 template <unsigned int FRAME_SIZE>
 static void BenchmarkFeedWithPacketsFFTW(benchmark::State &state) {
@@ -81,11 +81,11 @@ static void BenchmarkFeedWithEvents(benchmark::State &state) {
     }
   }
 }
-// BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 16);
-// BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 32);
-// BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 64);
-// BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 128);
-// BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 256);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 16);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 32);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 64);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 128);
+BENCHMARK_TEMPLATE(BenchmarkFeedWithEvents, 256);
 
 template <unsigned int FRAME_SIZE>
 static void BenchmarkFeedWithPackets(benchmark::State &state) {
