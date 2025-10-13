@@ -1,19 +1,21 @@
 cff-version: 1.2.0
-message: "If you use this work in an academic context, please cite the following publication:"
-type: article
-authors:
-  - family-names: "Tapia"
-    given-names: "Raul"
-  - family-names: "Martínez-de Dios"
-    given-names: "José Ramiro"
-  - family-names: "Ollero"
-    given-names: "Anibal"
-title: "eFFT: An Event-based Method for the Efficient Computation of Exact Fourier Transforms"
-journal: "IEEE Transactions on Pattern Analysis and Machine Intelligence"
-year: 2024
-volume: 46
-number: 12
-pages: "9630-9647"
-doi: "10.1109/TPAMI.2024.3422209"
-url: "https://doi.org/10.1109/TPAMI.2024.3422209"
-abstract: "We introduce eFFT, an efficient method for the calculation of the exact Fourier transform of an asynchronous event stream. It is based on keeping the matrices involved in the Radix-2 FFT algorithm in a tree data structure and updating them with the new events, extensively reusing computations, and avoiding unnecessary calculations while preserving exactness. eFFT can operate event-by-event, requiring for each event only a partial recalculation of the tree since most of the stored data are reused. It can also operate with event packets, using the tree structure to detect and avoid unnecessary and repeated calculations when integrating the different events within each packet to further reduce the number of operations. eFFT has been extensively evaluated with public datasets and experiments, validating its exactness, low processing time, and feasibility for online execution on resource-constrained hardware. We release a C++ implementation of eFFT to the community."
+message: "If you use this work in an academic context, please cite the following publication."
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Tapia"
+      given-names: "Raul"
+    - family-names: "Martínez-de Dios"
+      given-names: "José Ramiro"
+    - family-names: "Ollero"
+      given-names: "Anibal"
+  title: "eFFT: An Event-based Method for the Efficient Computation of Exact Fourier Transforms"
+  journal: "IEEE Transactions on Pattern Analysis and Machine Intelligence"
+  year: 2024
+  volume: 46
+  issue: 12
+  start: 9630
+  end: 9647
+  doi: "10.1109/TPAMI.2024.3422209"
+  url: "https://doi.org/10.1109/TPAMI.2024.3422209"
+  abstract: "We introduce eFFT, an efficient method for the calculation of the exact Fourier transform of an asynchronous event stream. It is based on keeping the matrices involved in the Radix-2 FFT algorithm in a tree data structure and updating them with the new events, extensively reusing computations, and avoiding unnecessary calculations while preserving exactness. eFFT can operate event-by-event, requiring for each event only a partial recalculation of the tree since most of the stored data are reused. It can also operate with event packets, using the tree structure to detect and avoid unnecessary and repeated calculations when integrating the different events within each packet to further reduce the number of operations. eFFT has been extensively evaluated with public datasets and experiments, validating its exactness, low processing time, and feasibility for online execution on resource-constrained hardware. We release a C++ implementation of eFFT to the community."
