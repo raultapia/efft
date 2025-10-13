@@ -25,13 +25,29 @@
 var NAVTREE =
 [
   [ "eFFT", "index.html", [
+    [ "Contributing", "md_CONTRIBUTING.html", [
+      [ "⚙️ Installation", "index.html#autotoc_md20", null ],
+      [ "🖥️ Usage", "index.html#autotoc_md21", null ],
+      [ "🐍 Python Bindings", "index.html#autotoc_md22", null ],
+      [ "📜 Citation", "index.html#autotoc_md23", null ],
+      [ "📝 License", "index.html#autotoc_md24", null ],
+      [ "📬 Contact", "index.html#autotoc_md25", null ],
+      [ "How to Contribute", "md_CONTRIBUTING.html#autotoc_md2", [
+        [ "Fork the Repository", "md_CONTRIBUTING.html#autotoc_md3", null ],
+        [ "Clone the Repository", "md_CONTRIBUTING.html#autotoc_md4", null ],
+        [ "Create a Branch", "md_CONTRIBUTING.html#autotoc_md5", null ],
+        [ "Make Changes", "md_CONTRIBUTING.html#autotoc_md6", null ],
+        [ "Test Your Changes", "md_CONTRIBUTING.html#autotoc_md7", null ],
+        [ "Commit Your Changes", "md_CONTRIBUTING.html#autotoc_md8", null ],
+        [ "Push Your Changes", "md_CONTRIBUTING.html#autotoc_md9", null ],
+        [ "Open a Pull Request", "md_CONTRIBUTING.html#autotoc_md10", null ]
+      ] ],
+      [ "Reporting Issues", "md_CONTRIBUTING.html#autotoc_md12", null ],
+      [ "Submitting Changes", "md_CONTRIBUTING.html#autotoc_md14", null ],
+      [ "Development Guidelines", "md_CONTRIBUTING.html#autotoc_md16", null ],
+      [ "License", "md_CONTRIBUTING.html#autotoc_md18", null ]
+    ] ],
     [ "Classes", "annotated.html", [
-      [ "⚙️ Installation", "index.html#autotoc_md0", null ],
-      [ "🖥️ Usage", "index.html#autotoc_md1", null ],
-      [ "🐍 Python Bindings", "index.html#autotoc_md2", null ],
-      [ "📜 Citation", "index.html#autotoc_md3", null ],
-      [ "📝 License", "index.html#autotoc_md4", null ],
-      [ "📬 Contact", "index.html#autotoc_md5", null ],
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],

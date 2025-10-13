@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['efft_0',['eFFT',['../classeFFT.html',1,'eFFT&lt; N &gt;'],['../index.html',1,'eFFT']]],
-  ['efft_2ehpp_1',['efft.hpp',['../efft_8hpp.html',1,'']]]
+  ['3_20create_20a_20branch_0',['3. Create a Branch',['../md_CONTRIBUTING.html#autotoc_md5',1,'']]]
 ];

@@ -1,5 +1,11 @@
 var searchData=
 [
-  ['update_0',['update',['../classeFFT.html#a0dce88356a55655c568307b5f12d58fe',1,'eFFT::update(const Stimulus &amp;p)'],['../classeFFT.html#aec0dd2f6cad2d1a6b92da4c4e1e33cb8',1,'eFFT::update(cfloatmat &amp;x, const Stimulus &amp;p, const unsigned int offset=0)'],['../classeFFT.html#a0efaad0786f0ca416b582b7b7452a9c8',1,'eFFT::update(Stimuli &amp;pv)'],['../classeFFT.html#a20c78351986a562159cd20bb561ee6e9',1,'eFFT::update(cfloatmat &amp;x, Stimuli::iterator b0, Stimuli::iterator e0, const unsigned int offset=0)']]],
-  ['usage_1',['🖥️ Usage',['../index.html#autotoc_md1',1,'']]]
+  ['changes_0',['Changes',['../md_CONTRIBUTING.html#autotoc_md6',1,'4. Make Changes'],['../md_CONTRIBUTING.html#autotoc_md7',1,'5. Test Your Changes'],['../md_CONTRIBUTING.html#autotoc_md8',1,'6. Commit Your Changes'],['../md_CONTRIBUTING.html#autotoc_md9',1,'7. Push Your Changes'],['../md_CONTRIBUTING.html#autotoc_md14',1,'Submitting Changes']]],
+  ['citation_1',['📜 Citation',['../index.html#autotoc_md23',1,'']]],
+  ['clone_20the_20repository_2',['2. Clone the Repository',['../md_CONTRIBUTING.html#autotoc_md4',1,'']]],
+  ['commit_20your_20changes_3',['6. Commit Your Changes',['../md_CONTRIBUTING.html#autotoc_md8',1,'']]],
+  ['contact_4',['📬 Contact',['../index.html#autotoc_md25',1,'']]],
+  ['contribute_5',['How to Contribute',['../md_CONTRIBUTING.html#autotoc_md2',1,'']]],
+  ['contributing_6',['Contributing',['../md_CONTRIBUTING.html',1,'']]],
+  ['create_20a_20branch_7',['3. Create a Branch',['../md_CONTRIBUTING.html#autotoc_md5',1,'']]]
 ];

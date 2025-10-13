@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['efft_0',['eFFT',['../index.html',1,'']]]
+  ['contributing_0',['Contributing',['../md_CONTRIBUTING.html',1,'']]]
 ];

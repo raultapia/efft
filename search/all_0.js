@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bindings_0',['Bindings',['../index.html#autotoc_md2',1,'🐍 Python Bindings'],['../structBindings.html',1,'Bindings&lt; N &gt;']]]
+  ['1_20fork_20the_20repository_0',['1. Fork the Repository',['../md_CONTRIBUTING.html#autotoc_md3',1,'']]]
 ];

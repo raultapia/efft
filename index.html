@@ -114,13 +114,13 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p align="justify" class="brief"><a class="anchor" id="md_README"></a> </p><div align="center" style="margin-bottom: 10px;"> <a href="https://github.com/raultapia/efft"><img src="https://github.com/raultapia/efft/blob/main/.github/assets/efft.png?raw=true" alt="efft" width="500" class="inline"/> </a> </div> <p>We introduce <a class="el" href="classeFFT.html">eFFT</a>, an efficient method for the calculation of the exact Fourier transform of an asynchronous event stream. It is based on keeping the matrices involved in the Radix-2 FFT algorithm in a tree data structure and updating them with the new events, extensively reusing computations, and avoiding unnecessary calculations while preserving exactness. <a class="el" href="classeFFT.html">eFFT</a> can operate event-by-event, requiring for each event only a partial recalculation of the tree since most of the stored data are reused. It can also operate with event packets, using the tree structure to detect and avoid unnecessary and repeated calculations when integrating the different events within each packet to further reduce the number of operations. </p>
-<h2><a class="anchor" id="autotoc_md0"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 ⚙️ Installation</h2>
 <p><a class="el" href="classeFFT.html">eFFT</a> is provided as a header-only file for easy integration and relies solely on C++ standard and <a href="https://eigen.tuxfamily.org/">Eigen3</a> libraries.</p>
 <blockquote class="doxtable">
 <p><b>Note:</b> <a href="https://fftw.org/">FFTW3</a> served as the benchmark for testing and evaluation. To enable it, define <code>EFFT_USE_FFTW3</code> during compilation (e.g., <code>-DEFFT_USE_FFTW3</code>). </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md1"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 🖥️ Usage</h2>
 <p>Here's a minimal working example:</p>
 <div class="fragment"><div class="line"><a class="code hl_class" href="classeFFT.html">eFFT&lt;128&gt;</a> efft;           <span class="comment">// Instance</span></div>
@@ -146,7 +146,7 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 <div class="line">efft.getFFT();                    <span class="comment">// Get result as Eigen matrix</span></div>
 <div class="ttc" id="aclassStimuli_html"><div class="ttname"><a href="classStimuli.html">Stimuli</a></div><div class="ttdef"><b>Definition</b> efft.hpp:61</div></div>
 </div><!-- fragment --><p>Please refer to the <a href="https://raultapia.github.io/efft/">official documentation</a> for more details.</p>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 🐍 Python Bindings</h2>
 <p>The <a class="el" href="classeFFT.html">eFFT</a> library also provides Python bindings for seamless integration into Python-based workflows. These bindings are built using <a href="https://github.com/wjakob/nanobind">nanobind</a> and offer the same functionality as the C++ library. You can build and install the bindings using the following commands:</p>
 <div class="fragment"><div class="line">cd python</div>
@@ -169,7 +169,7 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 <div class="line">efft.update(events)</div>
 <div class="line"> </div>
 <div class="line">fft_result = efft.get_fft()       <span class="comment"># Retrieve the updated FFT result</span></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md23"></a>
 📜 Citation</h2>
 <p>If you use this work in an academic context, please cite the following publication:</p>
 <blockquote class="doxtable">
@@ -185,10 +185,10 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 <div class="line">  pages={9630-9647},</div>
 <div class="line">  doi={10.1109/TPAMI.2024.3422209}</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md24"></a>
 📝 License</h2>
 <p>Distributed under the GPLv3 License. See <a href="https://github.com/raultapia/efft/tree/main/LICENSE"><code>LICENSE</code></a> for more information.</p>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 📬 Contact</h2>
 <p><a href="https://raultapia.com">Raul Tapia</a> - <a href="#" onclick="location.href='mai'+'lto:'+'rau'+'lt'+'api'+'a@'+'us.'+'es'; return false;">rault<span class="obfuscator">.nosp@m.</span>apia<span class="obfuscator">.nosp@m.</span>@us.e<span class="obfuscator">.nosp@m.</span>s</a> </p>
 </div></div><!-- PageDoc -->

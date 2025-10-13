@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['citation_0',['📜 Citation',['../index.html#autotoc_md3',1,'']]],
-  ['contact_1',['📬 Contact',['../index.html#autotoc_md5',1,'']]]
+  ['2_20clone_20the_20repository_0',['2. Clone the Repository',['../md_CONTRIBUTING.html#autotoc_md4',1,'']]]
 ];

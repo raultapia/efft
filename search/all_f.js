@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['📬_20contact_0',['📬 Contact',['../index.html#autotoc_md5',1,'']]]
+  ['how_20to_20contribute_0',['How to Contribute',['../md_CONTRIBUTING.html#autotoc_md2',1,'']]]
 ];
