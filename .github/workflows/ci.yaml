@@ -1,45 +1,32 @@
-name: Build
-
+name: CI
 on:
   push:
     branches: [main]
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-
+        uses: actions/checkout@v4
       - name: Dependencies
         run: |
-          sudo apt install libeigen3-dev
-          sudo apt install libfftw3-dev
-          sudo apt install libgtest-dev
-          sudo apt install libbenchmark-dev
-
+          sudo apt update
+          sudo apt install -y libeigen3-dev
+          sudo apt install -y libfftw3-dev
+          sudo apt install -y libgtest-dev
+          sudo apt install -y libbenchmark-dev
+          sudo rm -rf /var/lib/apt/lists/*
       - name: Build
         run: |
-          git clone https://github.com/raultapia/efft
-          mkdir -p efft/build
-          cd efft/build
-          cmake ..
-          make
-
+          cmake -S . -B build
+          cmake --build build
       - name: Test
-        run: |
-          cd efft/build
-          make test
-
+        run: ctest --test-dir build --output-on-failure
       - name: Benchmark
-        run: |
-          cd efft/build
-          make benchmark
-
+        run: cmake --build build --target benchmark
       - name: Python
+        working-directory: ./python
         run: |
-          cd efft/python
           sudo apt -y install python3
           sudo apt -y install python3-pip
           python3 -m pip install --upgrade pip setuptools wheel
