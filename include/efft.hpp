@@ -9,12 +9,12 @@
 #ifndef EFFT_HPP
 #define EFFT_HPP
 
+#include <Eigen/Core>
 #include <algorithm>
 #include <array>
 #include <cmath>
 #include <complex>
 #include <cstddef>
-#include <eigen3/Eigen/Core>
 #include <ostream>
 #include <stdint.h>
 #include <unordered_map>
