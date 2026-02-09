@@ -17,14 +17,17 @@ find_package(
   COMPONENTS Interpreter Development.Module
   REQUIRED)
 
-find_package(Eigen3 3.4.0 REQUIRED)
+find_package(Eigen3 REQUIRED)
+if(Eigen3_VERSION VERSION_LESS 3.4.0)
+  message(FATAL_ERROR "Eigen3 >= 3.4.0 required, found ${Eigen3_VERSION}")
+endif()
 
-nanobind_add_module(efft src/efft/bindings.cpp)
-target_link_libraries(efft PRIVATE Eigen3::Eigen)
-target_include_directories(efft PRIVATE ${CMAKE_SOURCE_DIR}/../include)
-target_compile_definitions(efft PRIVATE EIGEN_STACK_ALLOCATION_LIMIT=0)
+nanobind_add_module(_efft src/efft/bindings.cpp)
+target_link_libraries(_efft PRIVATE Eigen3::Eigen)
+target_include_directories(_efft PRIVATE ${CMAKE_SOURCE_DIR}/../include)
+target_compile_definitions(_efft PRIVATE EIGEN_STACK_ALLOCATION_LIMIT=0)
 target_compile_options(
-  efft
+  _efft
   PRIVATE -O3
           -march=native
           -flto
@@ -33,4 +36,8 @@ target_compile_options(
           -fomit-frame-pointer
           -ffast-math)
 
-install(TARGETS efft LIBRARY DESTINATION "${CMAKE_SOURCE_DIR}/src/efft")
+install(
+  TARGETS _efft
+  LIBRARY DESTINATION efft
+  RUNTIME DESTINATION efft
+  ARCHIVE DESTINATION efft)

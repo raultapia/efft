@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
 jobs:
-  build:
+  build-linux:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -11,27 +11,81 @@ jobs:
       - name: Dependencies
         run: |
           sudo apt update
-          sudo apt install -y libeigen3-dev
-          sudo apt install -y libfftw3-dev
-          sudo apt install -y libgtest-dev
-          sudo apt install -y libbenchmark-dev
-          sudo rm -rf /var/lib/apt/lists/*
+          sudo apt install -y libeigen3-dev libfftw3-dev libgtest-dev libbenchmark-dev
       - name: Build
         run: |
-          cmake -S . -B build
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
           cmake --build build
       - name: Test
         run: ctest --test-dir build --output-on-failure
       - name: Benchmark
-        run: cmake --build build --target benchmark
+        run: cmake --build build --target run-benchmark
       - name: Python
         working-directory: ./python
         run: |
-          sudo apt -y install python3
-          sudo apt -y install python3-pip
-          python3 -m pip install --upgrade pip setuptools wheel
-          cmake -S . -B build
+          python -m venv .venv
+          . .venv/bin/activate
+          python -m pip install -U pip
+          python -m pip install -v .[test]
+          python -m pytest --verbose
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup MinGW GCC
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: >
+            git
+            mingw-w64-x86_64-cmake
+            mingw-w64-x86_64-gcc
+            mingw-w64-x86_64-ninja
+            mingw-w64-x86_64-pkgconf
+            mingw-w64-x86_64-python
+            mingw-w64-x86_64-python-numpy
+            mingw-w64-x86_64-python-pip
+            mingw-w64-x86_64-python-pytest
+      - name: Setup vcpkg
+        shell: msys2 {0}
+        run: |
+          git clone https://github.com/microsoft/vcpkg
+          ./vcpkg/bootstrap-vcpkg.sh
+          ./vcpkg/vcpkg install eigen3 fftw3 gtest benchmark --triplet x64-mingw-dynamic
+      - name: Build
+        shell: msys2 {0}
+        run: |
+          TOOLCHAIN="$(cygpath -u "$GITHUB_WORKSPACE")/vcpkg/scripts/buildsystems/vcpkg.cmake"
+          cmake -S . -B build -G Ninja -DCMAKE_TOOLCHAIN_FILE="$TOOLCHAIN" -DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic -DCMAKE_BUILD_TYPE=Release
           cmake --build build
-          cmake --install build
-          python3 -m pip install .[test]
-          python3 -m pytest --verbose
+      - name: Test
+        shell: msys2 {0}
+        run: ctest --test-dir build --output-on-failure
+      - name: Benchmark
+        shell: msys2 {0}
+        run: cmake --build build --target run-benchmark
+      - name: Python
+        shell: msys2 {0}
+        working-directory: ./python
+        run: |
+          TOOLCHAIN="$(cygpath -u "$GITHUB_WORKSPACE")/vcpkg/scripts/buildsystems/vcpkg.cmake"
+          python -m venv .venv --system-site-packages
+          source .venv/bin/activate
+          python -m pip install -U pip
+          python -m pip install -U scikit-build-core cmake
+          python -m pip install -v . --no-build-isolation --no-deps \
+            --config-settings=cmake.args="-G Ninja" \
+            --config-settings=cmake.args="-DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN" \
+            --config-settings=cmake.args="-DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic" \
+            --config-settings=cmake.args="-DCMAKE_BUILD_TYPE=Release" \
+            --config-settings=cmake.args="-DPython_EXECUTABLE=$(which python)"
+          python -m pytest --verbose
+  build-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build
+        run: docker build -t efft:latest .

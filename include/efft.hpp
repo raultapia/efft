@@ -15,6 +15,7 @@
 #include <cmath>
 #include <complex>
 #include <cstddef>
+#include <new>
 #include <ostream>
 #include <stdint.h>
 #include <unordered_map>
@@ -24,6 +25,12 @@
 #ifdef EFFT_USE_FFTW3
 #include <fftw3.h>
 #include <set>
+#endif
+
+#if EIGEN_MAJOR_VERSION >= 5
+#define EIGEN_LAST Eigen::placeholders::last
+#else
+#define EIGEN_LAST Eigen::last
 #endif
 
 class Stimulus {
@@ -126,18 +133,26 @@ class eFFT {
 private:
   static constexpr unsigned int LOG2_N = LOG2(N);
   std::array<std::vector<cfloatmat>, LOG2_N + 1> tree_;
-  std::array<cfloat, static_cast<std::size_t>(N) * static_cast<std::size_t>(N + 1)> twiddle_;
+  std::vector<cfloat> twiddle_;
 #ifdef EFFT_USE_FFTW3
-  std::array<fftw_complex, static_cast<std::size_t>(N) * static_cast<std::size_t>(N)> fftwInput_;
-  std::array<fftw_complex, static_cast<std::size_t>(N) * static_cast<std::size_t>(N)> fftwOutput_;
+  fftw_complex *fftwInput_{nullptr};
+  fftw_complex *fftwOutput_{nullptr};
   fftw_plan plan_{nullptr};
 #endif
 
 public:
   eFFT() {
-    constexpr float MINUS_TWO_PI = -2 * M_PI;
+    constexpr float PI = 3.14159265358979323846F;
+    constexpr float MINUS_TWO_PI = -2 * PI;
+    twiddle_.resize(static_cast<std::size_t>(N) * static_cast<std::size_t>(N + 1));
+#ifdef EFFT_USE_FFTW3
+    fftwInput_ = static_cast<fftw_complex *>(fftw_malloc(sizeof(fftw_complex) * static_cast<std::size_t>(N) * static_cast<std::size_t>(N)));
+    fftwOutput_ = static_cast<fftw_complex *>(fftw_malloc(sizeof(fftw_complex) * static_cast<std::size_t>(N) * static_cast<std::size_t>(N)));
+    if(!fftwInput_ || !fftwOutput_) throw std::bad_alloc();
+#endif
     for(unsigned int i = 0; i < N; i++) {
-      for(unsigned int n = 0; n <= N; n++) {
+      twiddle_[i] = cfloat{1.0F, 0.0F};
+      for(unsigned int n = 1; n <= N; n++) {
         twiddle_[i + N * n] = static_cast<cfloat>(std::polar(1.0F, MINUS_TWO_PI * static_cast<float>(i) / static_cast<float>(n)));
       }
     }
@@ -145,15 +160,15 @@ public:
 
   ~eFFT() {
 #ifdef EFFT_USE_FFTW3
-    if(plan_ != nullptr) {
-      fftw_destroy_plan(plan_);
-    }
+    if(plan_) fftw_destroy_plan(plan_);
+    if(fftwInput_) fftw_free(fftwInput_);
+    if(fftwOutput_) fftw_free(fftwOutput_);
 #endif
   }
 
-  eFFT(const eFFT &) = default;
+  eFFT(const eFFT &) = delete;
   eFFT(eFFT &&) noexcept = default;
-  eFFT &operator=(const eFFT &) = default;
+  eFFT &operator=(const eFFT &) = delete;
   eFFT &operator=(eFFT &&) noexcept = default;
 
   /**
@@ -187,10 +202,10 @@ public:
     const unsigned int ndiv2 = n >> 1U;
     const unsigned int idx = log2i(ndiv2);
 
-    cfloatmat s00(x(Eigen::seq(Eigen::fix<0>, Eigen::last, Eigen::fix<2>), Eigen::seq(Eigen::fix<0>, Eigen::last, Eigen::fix<2>)));
-    cfloatmat s01(x(Eigen::seq(Eigen::fix<0>, Eigen::last, Eigen::fix<2>), Eigen::seq(Eigen::fix<1>, Eigen::last, Eigen::fix<2>)));
-    cfloatmat s10(x(Eigen::seq(Eigen::fix<1>, Eigen::last, Eigen::fix<2>), Eigen::seq(Eigen::fix<0>, Eigen::last, Eigen::fix<2>)));
-    cfloatmat s11(x(Eigen::seq(Eigen::fix<1>, Eigen::last, Eigen::fix<2>), Eigen::seq(Eigen::fix<1>, Eigen::last, Eigen::fix<2>)));
+    cfloatmat s00(x(Eigen::seq(Eigen::fix<0>, EIGEN_LAST, Eigen::fix<2>), Eigen::seq(Eigen::fix<0>, EIGEN_LAST, Eigen::fix<2>)));
+    cfloatmat s01(x(Eigen::seq(Eigen::fix<0>, EIGEN_LAST, Eigen::fix<2>), Eigen::seq(Eigen::fix<1>, EIGEN_LAST, Eigen::fix<2>)));
+    cfloatmat s10(x(Eigen::seq(Eigen::fix<1>, EIGEN_LAST, Eigen::fix<2>), Eigen::seq(Eigen::fix<0>, EIGEN_LAST, Eigen::fix<2>)));
+    cfloatmat s11(x(Eigen::seq(Eigen::fix<1>, EIGEN_LAST, Eigen::fix<2>), Eigen::seq(Eigen::fix<1>, EIGEN_LAST, Eigen::fix<2>)));
     initialize(s00, 4 * offset);
     initialize(s01, 4 * offset + 4);
     initialize(s10, 4 * offset + 8);
@@ -392,7 +407,7 @@ public:
    * @param image A complex float matrix to initialize the FFT input. Defaults to a zero matrix.
    */
   void initializeGroundTruth(const cfloatmat &image = cfloatmat::Zero(N, N)) {
-    plan_ = fftw_plan_dft_2d(N, N, fftwInput_.data(), fftwOutput_.data(), FFTW_FORWARD, FFTW_ESTIMATE | FFTW_UNALIGNED | FFTW_NO_SIMD | FFTW_PRESERVE_INPUT);
+    plan_ = fftw_plan_dft_2d(N, N, fftwInput_, fftwOutput_, FFTW_FORWARD, FFTW_ESTIMATE | FFTW_UNALIGNED | FFTW_NO_SIMD | FFTW_PRESERVE_INPUT);
     for(Eigen::Index i = 0; i < image.rows(); i++) {
       for(Eigen::Index j = 0; j < image.cols(); j++) {
         fftwInput_[N * i + j][0] = image(i, j).real();
@@ -438,7 +453,7 @@ public:
    *
    * @return The FFT result.
    */
-  [[nodiscard]] inline Eigen::Matrix<cfloat, N, N> getFFT() const {
+  [[nodiscard]] inline const cfloatmat &getFFT() const {
     return tree_[LOG2_N][0];
   }
 
@@ -448,8 +463,8 @@ public:
    *
    * @return The ground truth FFT result.
    */
-  [[nodiscard]] inline Eigen::Matrix<cfloat, N, N> getGroundTruthFFT() const {
-    return Eigen::Map<const Eigen::Matrix<std::complex<double>, N, N, Eigen::RowMajor>>(reinterpret_cast<const std::complex<double> *>(fftwOutput_.data())).template cast<cfloat>();
+  [[nodiscard]] inline cfloatmat getGroundTruthFFT() const {
+    return Eigen::Map<const Eigen::Matrix<std::complex<double>, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>>(reinterpret_cast<const std::complex<double> *>(fftwOutput_), N, N).template cast<cfloat>();
   }
 
   /**

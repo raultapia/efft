@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["scikit-build-core>=0.11.6", "nanobind>=2.2.0"]
+build-backend = "scikit_build_core.build"
 
 [project]
 name = "efft"
@@ -8,19 +8,27 @@ version = "1.0.0"
 description = "A Python binding for the eFFT library"
 authors = [{ name = "Raul Tapia", email = "raultapia@us.es" }]
 urls = { homepage = "https://github.com/raultapia/efft", repository = "https://github.com/raultapia/efft" }
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 license = { text = "GPLv3" }
-dependencies = []
-optional-dependencies = { test = ["pytest", "numpy"] }
+dependencies = ["numpy"]
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[project.optional-dependencies]
+test = ["pytest"]
 
-[tool.setuptools]
-include-package-data = true
+[tool.scikit-build]
+cmake.source-dir = "."
+cmake.build-type = "Release"
 
-[tool.setuptools.package-data]
-efft = ["*.so"]
+[tool.scikit-build.wheel]
+packages = { "efft" = "src/efft" }
+
+[tool.scikit-build.sdist]
+include = [
+  "CMakeLists.txt",
+  "pyproject.toml",
+  "src/efft/**",
+  "tests/**",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

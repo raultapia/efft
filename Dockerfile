@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:latest
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt -y update
@@ -11,6 +11,7 @@ RUN apt -y install libgtest-dev
 RUN apt -y install libbenchmark-dev
 RUN apt -y install python3
 RUN apt -y install python3-pip
+RUN apt -y install python3-venv
 
 COPY . /efft
 RUN rm -rf /efft/build
@@ -19,14 +20,12 @@ WORKDIR /efft/build
 RUN cmake ..
 RUN make -j$(nproc)
 RUN make test
-RUN make benchmark
+RUN make run-benchmark
 
 WORKDIR /efft/python
 RUN rm -rf /efft/python/build
 RUN mkdir /efft/python/build
-RUN ["python3", "-m", "pip", "install", "--upgrade", "pip", "setuptools", "wheel"]
-RUN ["cmake", "-S", ".", "-B", "build"]
-RUN ["cmake", "--build", "build"]
-RUN ["cmake", "--install", "build"]
-RUN ["python3", "-m", "pip", "install", ".[test]"]
-RUN ["python3", "-m", "pytest", "--verbose"]
+RUN python3 -m venv .venv
+RUN . .venv/bin/activate && python3 -m pip install -U pip
+RUN . .venv/bin/activate && python3 -m pip install -v .[test]
+RUN . .venv/bin/activate && python3 -m pytest --verbose

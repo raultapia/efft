@@ -51,7 +51,6 @@ The eFFT library also provides Python bindings for seamless integration into Pyt
 
 ```bash
 cd python
-cmake -S . -B build && cmake --build build && cmake --install build
 pip install .
 ```
 

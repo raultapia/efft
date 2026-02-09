@@ -1,5 +1,5 @@
-from .efft import Stimulus, Stimuli
-from .efft import eFFT4, eFFT8, eFFT16, eFFT32, eFFT64, eFFT128, eFFT256, eFFT512, eFFT1024
+from ._efft import Stimulus, Stimuli
+from ._efft import eFFT4, eFFT8, eFFT16, eFFT32, eFFT64, eFFT128, eFFT256, eFFT512, eFFT1024
 
 
 def eFFT(n):
