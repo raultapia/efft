@@ -1,5 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this work in an academic context, please cite the following publication."
+title: "eFFT"
+authors:
+  - family-names: "Tapia"
+    given-names: "Raul"
+  - family-names: "Martínez-de Dios"
+    given-names: "José Ramiro"
+  - family-names: "Ollero"
+    given-names: "Anibal"
 preferred-citation:
   type: article
   authors:
