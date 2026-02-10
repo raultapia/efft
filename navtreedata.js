@@ -27,11 +27,12 @@ var NAVTREE =
   [ "eFFT", "index.html", [
     [ "Contributing", "md_CONTRIBUTING.html", [
       [ "⚙️ Installation", "index.html#autotoc_md20", null ],
-      [ "🖥️ Usage", "index.html#autotoc_md21", null ],
-      [ "🐍 Python Bindings", "index.html#autotoc_md22", null ],
-      [ "📜 Citation", "index.html#autotoc_md23", null ],
-      [ "📝 License", "index.html#autotoc_md24", null ],
-      [ "📬 Contact", "index.html#autotoc_md25", null ],
+      [ "📦 Dependencies", "index.html#autotoc_md21", null ],
+      [ "🖥️ Usage", "index.html#autotoc_md22", null ],
+      [ "🐍 Python Bindings", "index.html#autotoc_md23", null ],
+      [ "📜 Citation", "index.html#autotoc_md24", null ],
+      [ "📝 License", "index.html#autotoc_md25", null ],
+      [ "📬 Contact", "index.html#autotoc_md26", null ],
       [ "How to Contribute", "md_CONTRIBUTING.html#autotoc_md2", [
         [ "Fork the Repository", "md_CONTRIBUTING.html#autotoc_md3", null ],
         [ "Clone the Repository", "md_CONTRIBUTING.html#autotoc_md4", null ],
