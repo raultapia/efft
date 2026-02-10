@@ -130,9 +130,9 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 <div class="line">efft.update(e);           <span class="comment">// Insert event</span></div>
 <div class="line"> </div>
 <div class="line">efft.getFFT();            <span class="comment">// Get result as Eigen matrix</span></div>
-<div class="ttc" id="aclassStimulus_html"><div class="ttname"><a href="classStimulus.html">Stimulus</a></div><div class="ttdef"><b>Definition</b> efft.hpp:29</div></div>
-<div class="ttc" id="aclasseFFT_html"><div class="ttname"><a href="classeFFT.html">eFFT</a></div><div class="ttdef"><b>Definition</b> efft.hpp:125</div></div>
-<div class="ttc" id="aclasseFFT_html_a00a7ca899559f09fb119036886710b14"><div class="ttname"><a href="classeFFT.html#a00a7ca899559f09fb119036886710b14">eFFT::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Initializes the FFT computation with zero matrix.</div><div class="ttdef"><b>Definition</b> efft.hpp:170</div></div>
+<div class="ttc" id="aclassStimulus_html"><div class="ttname"><a href="classStimulus.html">Stimulus</a></div><div class="ttdef"><b>Definition</b> efft.hpp:36</div></div>
+<div class="ttc" id="aclasseFFT_html"><div class="ttname"><a href="classeFFT.html">eFFT</a></div><div class="ttdef"><b>Definition</b> efft.hpp:132</div></div>
+<div class="ttc" id="aclasseFFT_html_a00a7ca899559f09fb119036886710b14"><div class="ttname"><a href="classeFFT.html#a00a7ca899559f09fb119036886710b14">eFFT::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Initializes the FFT computation with zero matrix.</div><div class="ttdef"><b>Definition</b> efft.hpp:185</div></div>
 </div><!-- fragment --><p>And another example handling event packets:</p>
 <div class="fragment"><div class="line"><a class="code hl_class" href="classeFFT.html">eFFT&lt;128&gt;</a> efft;                   <span class="comment">// Instance</span></div>
 <div class="line">efft.<a class="code hl_function" href="classeFFT.html#a00a7ca899559f09fb119036886710b14">initialize</a>();                <span class="comment">// Initialization</span></div>
@@ -144,13 +144,12 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 <div class="line">efft.update(events);              <span class="comment">// Insert event</span></div>
 <div class="line"> </div>
 <div class="line">efft.getFFT();                    <span class="comment">// Get result as Eigen matrix</span></div>
-<div class="ttc" id="aclassStimuli_html"><div class="ttname"><a href="classStimuli.html">Stimuli</a></div><div class="ttdef"><b>Definition</b> efft.hpp:61</div></div>
+<div class="ttc" id="aclassStimuli_html"><div class="ttname"><a href="classStimuli.html">Stimuli</a></div><div class="ttdef"><b>Definition</b> efft.hpp:68</div></div>
 </div><!-- fragment --><p>Please refer to the <a href="https://raultapia.github.io/efft/">official documentation</a> for more details.</p>
 <h2><a class="anchor" id="autotoc_md22"></a>
 🐍 Python Bindings</h2>
 <p>The <a class="el" href="classeFFT.html">eFFT</a> library also provides Python bindings for seamless integration into Python-based workflows. These bindings are built using <a href="https://github.com/wjakob/nanobind">nanobind</a> and offer the same functionality as the C++ library. You can build and install the bindings using the following commands:</p>
 <div class="fragment"><div class="line">cd python</div>
-<div class="line">cmake -S . -B build &amp;&amp; cmake --build build &amp;&amp; cmake --install build</div>
 <div class="line">pip install .</div>
 </div><!-- fragment --><p>Here's an example of how to use the Python bindings:</p>
 <div class="fragment"><div class="line"><span class="keyword">from</span> efft <span class="keyword">import</span> Stimulus, Stimuli, eFFT</div>
