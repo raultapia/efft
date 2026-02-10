@@ -11,7 +11,7 @@ find_package(GTest REQUIRED)
 find_package(Threads REQUIRED)
 
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(FFTW3 REQUIRED IMPORTED_TARGET fftw3)
+pkg_check_modules(FFTW3 REQUIRED IMPORTED_TARGET "fftw3>=3.3.8")
 
 if(Eigen3_VERSION VERSION_LESS 3.4.0)
   message(FATAL_ERROR "Eigen3 >= 3.4.0 required, found ${Eigen3_VERSION}")

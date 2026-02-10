@@ -14,6 +14,17 @@ eFFT is provided as a header-only file for easy integration and relies solely on
 > **Note:**
 > [FFTW3](https://fftw.org/) served as the benchmark for testing and evaluation. To enable it, define `EFFT_USE_FFTW3` during compilation (e.g., `-DEFFT_USE_FFTW3`).
 
+## 📦 Dependencies
+
+For C++ usage, the following dependencies are required:
+* C++ compiler with C++17
+* CMake ≥ 3.20.0
+* Eigen ≥ 3.4.0
+* FFTW3 ≥ 3.3.8 (optional; see `EFFT_USE_FFTW3`)
+* (dev-only) GTest, Google Benchmark
+
+For Python usage, dependencies are defined in `python/pyproject.toml` and the build dependencies are fetchable via `python/CMakeLists.txt`.
+
 ## 🖥️ Usage
 
 Here's a minimal working example:
