@@ -53,3 +53,114 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/html/
           publish_branch: gh-pages
+  pypi-linux:
+    if: >
+      ${{
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_branch == 'main'
+      }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - name: Build
+        working-directory: python
+        run: |
+          python -m pip install -U pip build auditwheel
+          python -m build --wheel
+          mkdir -p publish
+          auditwheel repair dist/*.whl -w publish
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pypi-linux
+          path: python/publish/*.whl
+  pypi-windows:
+    if: >
+      ${{
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_branch == 'main'
+      }}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - name: Build
+        working-directory: python
+        shell: pwsh
+        run: |
+          python -m pip install -U pip build
+          python -m build --wheel
+          New-Item -ItemType Directory -Force publish | Out-Null
+          Copy-Item dist\*.whl publish\
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pypi-windows
+          path: python/publish/*.whl
+  pypi-macos:
+    if: >
+      ${{
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_branch == 'main'
+      }}
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - name: Build
+        working-directory: python
+        run: |
+          python -m pip install -U pip build delocate
+          python -m build --wheel
+          mkdir -p publish
+          delocate-wheel -w publish -v dist/*.whl
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pypi-macos
+          path: python/publish/*.whl
+  pypi-sdist:
+    if: >
+      ${{
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_branch == 'main'
+      }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - name: Build
+        working-directory: python
+        run: |
+          python -m pip install -U pip build
+          python -m build --sdist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pypi-sdist
+          path: python/dist/*.tar.gz
+  pypi-publish:
+    if: >
+      ${{
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_branch == 'main'
+      }}
+    needs: [pypi-linux, pypi-windows, pypi-macos, pypi-sdist]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+      - name: Collect
+        run: |
+          mkdir -p publish
+          find dist -type f \( -name "*.whl" -o -name "*.tar.gz" \) -exec cp {} publish/ \;
+          ls -la publish
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: publish

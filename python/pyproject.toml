@@ -4,16 +4,17 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "efft"
-version = "1.0.0"
+version = "1.0.1"
 description = "A Python binding for the eFFT library"
 authors = [{ name = "Raul Tapia", email = "raultapia@us.es" }]
 urls = { homepage = "https://github.com/raultapia/efft", repository = "https://github.com/raultapia/efft" }
+readme = "../README.md"
+license = { text = "GPL-3.0-later" }
 requires-python = ">=3.8"
-license = { text = "GPLv3" }
-dependencies = ["numpy"]
+dependencies = ["numpy>=1.21.0"]
 
 [project.optional-dependencies]
-test = ["pytest"]
+test = ["pytest>=6.0.0"]
 
 [tool.scikit-build]
 cmake.source-dir = "."

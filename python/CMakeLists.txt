@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.20.0)
 project(efft LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -12,15 +12,17 @@ FetchContent_Declare(
   GIT_TAG v2.2.0)
 FetchContent_MakeAvailable(nanobind)
 
+FetchContent_Declare(
+  eigen
+  GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+  GIT_TAG 3.4.0
+)
+FetchContent_MakeAvailable(eigen)
+
 find_package(
   Python 3.8
   COMPONENTS Interpreter Development.Module
   REQUIRED)
-
-find_package(Eigen3 REQUIRED)
-if(Eigen3_VERSION VERSION_LESS 3.4.0)
-  message(FATAL_ERROR "Eigen3 >= 3.4.0 required, found ${Eigen3_VERSION}")
-endif()
 
 nanobind_add_module(_efft src/efft/bindings.cpp)
 target_link_libraries(_efft PRIVATE Eigen3::Eigen)

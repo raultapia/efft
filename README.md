@@ -54,6 +54,12 @@ cd python
 pip install .
 ```
 
+However, you can also use PyPI to install the package directly:
+
+```bash
+pip install efft
+```
+
 Here's an example of how to use the Python bindings:
 
 ```python
