@@ -82,6 +82,31 @@ jobs:
             --config-settings=cmake.args="-DCMAKE_BUILD_TYPE=Release" \
             --config-settings=cmake.args="-DPython_EXECUTABLE=$(which python)"
           python -m pytest --verbose
+  build-macos:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Dependencies
+        run: |
+          brew update
+          brew install eigen fftw googletest google-benchmark
+      - name: Build
+        run: |
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
+      - name: Benchmark
+        run: cmake --build build --target run-benchmark
+      - name: Python
+        working-directory: ./python
+        run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
+          python -m pip install -U pip
+          python -m pip install -v .[test]
+          python -m pytest --verbose
   build-docker:
     runs-on: ubuntu-latest
     steps:
