@@ -26,12 +26,11 @@ find_package(
 
 nanobind_add_module(_efft src/efft/bindings.cpp)
 target_link_libraries(_efft PRIVATE Eigen3::Eigen)
-target_include_directories(_efft PRIVATE ${CMAKE_SOURCE_DIR}/../include)
+target_include_directories(_efft PRIVATE ${CMAKE_SOURCE_DIR}/include)
 target_compile_definitions(_efft PRIVATE EIGEN_STACK_ALLOCATION_LIMIT=0)
 target_compile_options(
   _efft
   PRIVATE -O3
-          -march=native
           -flto
           -funroll-loops
           -finline-functions

@@ -8,10 +8,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Assert README.md
-        run: diff README.md python/README.md
-      - name: Assert LICENSE
-        run: diff LICENSE python/LICENSE
+      - name: Assert
+        run: |
+          diff README.md python/README.md
+          diff LICENSE python/LICENSE
+          diff include/efft.hpp python/include/efft.hpp
   build-linux:
     needs: assert-files
     runs-on: ubuntu-latest
