@@ -4,7 +4,7 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "efft"
-version = "1.0.4"
+version = "1.0.5"
 description = "A Python binding for the eFFT library"
 authors = [{ name = "Raul Tapia", email = "raultapia@us.es" }]
 urls = { homepage = "https://github.com/raultapia/efft", repository = "https://github.com/raultapia/efft" }
