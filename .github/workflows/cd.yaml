@@ -160,7 +160,28 @@ jobs:
           mkdir -p publish
           find dist -type f \( -name "*.whl" -o -name "*.tar.gz" \) -exec cp {} publish/ \;
           ls -la publish
+      - name: Version check
+        id: pypi_check
+        shell: bash
+        run: |
+          set -euo pipefail
+          SDIST="$(ls -1 publish/*.tar.gz | head -n 1)"
+          BASENAME="$(basename "$SDIST")"
+          PKG_NAME="${BASENAME%%-*}"
+          VER_WITH_EXT="${BASENAME#"$PKG_NAME"-}"
+          PKG_VERSION="${VER_WITH_EXT%.tar.gz}"
+          echo "Detected package: $PKG_NAME"
+          echo "Detected version: $PKG_VERSION"
+          STATUS="$(curl -s -o /dev/null -w "%{http_code}" "https://pypi.org/pypi/${PKG_NAME}/${PKG_VERSION}/json" || true)"
+          if [[ "$STATUS" == "200" ]]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "Version already exists on PyPI -> skipping publish."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "Version does not exist on PyPI -> will publish."
+          fi
       - name: Publish to PyPI
+        if: ${{ steps.pypi_check.outputs.exists != 'true' }}
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: publish
