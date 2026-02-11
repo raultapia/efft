@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>eFFT: include/efft.hpp Source File</title>
+<title>eFFT: python/include/efft.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,7 +84,7 @@ $(function() { codefold.init(0); });
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('efft_8hpp_source.html',''); initResizable(true); });
+$(function(){initNavTree('python_2include_2efft_8hpp_source.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -113,7 +113,7 @@ $(function(){initNavTree('efft_8hpp_source.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">efft.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="efft_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<a href="python_2include_2efft_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef EFFT_HPP</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define EFFT_HPP</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
@@ -141,8 +141,7 @@ $(function(){initNavTree('efft_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#define EIGEN_LAST Eigen::last</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classStimulus.html">   36</a></span><span class="keyword">class </span>Stimulus {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">class </span><a class="code hl_class" href="classStimulus.html">Stimulus</a> {</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> row{0};</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> col{0};</div>
@@ -173,11 +172,9 @@ $(function(){initNavTree('efft_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> os;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  }</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
-</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="foldopen" id="foldopen00068" data-start="{" data-end="};">
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classStimuli.html">   68</a></span><span class="keyword">class </span><a class="code hl_class" href="classStimuli.html">Stimuli</a> : <span class="keyword">public</span> std::vector&lt;Stimulus&gt; {</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="keyword">using </span>std::vector&lt;<a class="code hl_class" href="classStimulus.html">Stimulus</a>&gt;::vector;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">class </span><a class="code hl_class" href="classStimuli.html">Stimuli</a> : <span class="keyword">public</span> std::vector&lt;Stimulus&gt; {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="keyword">using </span>std::vector&lt;Stimulus&gt;::vector;</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <span class="keyword">static</span> <span class="keyword">inline</span> uint64_t pack(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col) {</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">return</span> (<span class="keyword">static_cast&lt;</span>uint64_t<span class="keyword">&gt;</span>(<span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(row)) &lt;&lt; 32) | <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(col);</div>
@@ -185,16 +182,16 @@ $(function(){initNavTree('efft_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <span class="keywordtype">void</span> on() {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    std::for_each(begin(), end(), [](<a class="code hl_class" href="classStimulus.html">Stimulus</a> &amp;stimulus) { stimulus.state = <span class="keyword">true</span>; });</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    std::for_each(begin(), end(), [](Stimulus &amp;stimulus) { stimulus.state = <span class="keyword">true</span>; });</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  }</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="keywordtype">void</span> off() {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    std::for_each(begin(), end(), [](<a class="code hl_class" href="classStimulus.html">Stimulus</a> &amp;stimulus) { stimulus.state = <span class="keyword">false</span>; });</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    std::for_each(begin(), end(), [](Stimulus &amp;stimulus) { stimulus.state = <span class="keyword">false</span>; });</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  }</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keywordtype">void</span> set(<span class="keyword">const</span> <span class="keywordtype">bool</span> state) {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    std::for_each(begin(), end(), [state](<a class="code hl_class" href="classStimulus.html">Stimulus</a> &amp;stimulus) { stimulus.state = state; });</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    std::for_each(begin(), end(), [state](Stimulus &amp;stimulus) { stimulus.state = state; });</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  }</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="keywordtype">void</span> toggle() {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    std::for_each(begin(), end(), [](<a class="code hl_class" href="classStimulus.html">Stimulus</a> &amp;stimulus) { stimulus.state = !stimulus.state; });</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    std::for_each(begin(), end(), [](Stimulus &amp;stimulus) { stimulus.state = !stimulus.state; });</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  }</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
 <div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
@@ -220,7 +217,6 @@ $(function(){initNavTree('efft_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  }</div>
 </div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>};</div>
-</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keyword">using </span>cfloat = std::complex&lt;float&gt;;</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keyword">using </span>cfloatmat = Eigen::Matrix&lt;cfloat, Eigen::Dynamic, Eigen::Dynamic&gt;;</div>
@@ -239,8 +235,7 @@ $(function(){initNavTree('efft_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N&gt;</div>
-<div class="foldopen" id="foldopen00132" data-start="{" data-end="};">
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classeFFT.html">  132</a></span><span class="keyword">class </span>eFFT {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="keyword">class </span><a class="code hl_class" href="classeFFT.html">eFFT</a> {</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> LOG2_N = LOG2(N);</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>  std::array&lt;std::vector&lt;cfloatmat&gt;, LOG2_N + 1&gt; tree_;</div>
@@ -278,12 +273,12 @@ $(function(){initNavTree('efft_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>  }</div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>  eFFT(<span class="keyword">const</span> eFFT &amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  eFFT(eFFT &amp;&amp;) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>  eFFT &amp;operator=(<span class="keyword">const</span> eFFT &amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>  eFFT &amp;operator=(eFFT &amp;&amp;) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  eFFT(eFFT &amp;&amp;) noexcept = default;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>  eFFT &amp;operator=(const eFFT &amp;) = delete;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>  eFFT &amp;operator=(eFFT &amp;&amp;) noexcept = default;</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span></div>
 <div class="foldopen" id="foldopen00178" data-start="{" data-end="}">
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="classeFFT.html#a741ee02b93df85595fe76e378f1cbe9a">  178</a></span>  [[nodiscard]] <span class="keyword">constexpr</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classeFFT.html#a741ee02b93df85595fe76e378f1cbe9a">framesize</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="classeFFT.html#a741ee02b93df85595fe76e378f1cbe9a">  178</a></span>  [[nodiscard]] constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classeFFT.html#a741ee02b93df85595fe76e378f1cbe9a">framesize</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">return</span> N;</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>  }</div>
 </div>
@@ -530,12 +525,12 @@ $(function(){initNavTree('efft_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span>  }</div>
 <div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00479" name="l00479"></a><span class="lineno">  479</span>};</div>
-</div>
 <div class="line"><a id="l00480" name="l00480"></a><span class="lineno">  480</span> </div>
 <div class="line"><a id="l00481" name="l00481"></a><span class="lineno">  481</span><span class="preprocessor">#endif </span><span class="comment">// EFFT_HPP</span></div>
 <div class="ttc" id="aclassStimuli_html"><div class="ttname"><a href="classStimuli.html">Stimuli</a></div><div class="ttdef"><b>Definition</b> efft.hpp:68</div></div>
 <div class="ttc" id="aclassStimuli_html_a831c0fd68276f5dd7c454225334d23ad"><div class="ttname"><a href="classStimuli.html#a831c0fd68276f5dd7c454225334d23ad">Stimuli::filter</a></div><div class="ttdeci">void filter()</div><div class="ttdoc">Filters out stimuli.</div><div class="ttdef"><b>Definition</b> efft.hpp:93</div></div>
 <div class="ttc" id="aclassStimulus_html"><div class="ttname"><a href="classStimulus.html">Stimulus</a></div><div class="ttdef"><b>Definition</b> efft.hpp:36</div></div>
+<div class="ttc" id="aclasseFFT_html"><div class="ttname"><a href="classeFFT.html">eFFT</a></div><div class="ttdef"><b>Definition</b> efft.hpp:132</div></div>
 <div class="ttc" id="aclasseFFT_html_a00a7ca899559f09fb119036886710b14"><div class="ttname"><a href="classeFFT.html#a00a7ca899559f09fb119036886710b14">eFFT::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Initializes the FFT computation with zero matrix.</div><div class="ttdef"><b>Definition</b> efft.hpp:185</div></div>
 <div class="ttc" id="aclasseFFT_html_a0dce88356a55655c568307b5f12d58fe"><div class="ttname"><a href="classeFFT.html#a0dce88356a55655c568307b5f12d58fe">eFFT::update</a></div><div class="ttdeci">bool update(const Stimulus &amp;p)</div><div class="ttdoc">Updates the FFT with a single stimulus.</div><div class="ttdef"><b>Definition</b> efft.hpp:245</div></div>
 <div class="ttc" id="aclasseFFT_html_a0efaad0786f0ca416b582b7b7452a9c8"><div class="ttname"><a href="classeFFT.html#a0efaad0786f0ca416b582b7b7452a9c8">eFFT::update</a></div><div class="ttdeci">bool update(Stimuli &amp;pv)</div><div class="ttdoc">Updates the FFT with multiple stimuli.</div><div class="ttdef"><b>Definition</b> efft.hpp:317</div></div>
@@ -549,7 +544,7 @@ $(function(){initNavTree('efft_8hpp_source.html',''); initResizable(true); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="efft_8hpp.html">efft.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_7837fde3ab9c1fb2fc5be7b717af8d79.html">python</a></li><li class="navelem"><a class="el" href="dir_c05b91a3ab194cb81c2582492351eeee.html">include</a></li><li class="navelem"><a class="el" href="python_2include_2efft_8hpp.html">efft.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

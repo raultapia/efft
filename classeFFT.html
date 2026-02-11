@@ -156,10 +156,77 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b> ()</td
 <tr class="memitem:a67bdf4519b5574ba0810ba5f0a7d5799" id="r_a67bdf4519b5574ba0810ba5f0a7d5799"><td class="memItemLeft" align="right" valign="top">const cfloatmat &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67bdf4519b5574ba0810ba5f0a7d5799">getFFT</a> () const</td></tr>
 <tr class="memdesc:a67bdf4519b5574ba0810ba5f0a7d5799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the FFT result as an Eigen matrix of complex floats.  <br /></td></tr>
 <tr class="separator:a67bdf4519b5574ba0810ba5f0a7d5799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a903e81bdb7556e9d365c624b66232d36" id="r_a903e81bdb7556e9d365c624b66232d36"><td class="memItemLeft" align="right" valign="top"><a id="a903e81bdb7556e9d365c624b66232d36" name="a903e81bdb7556e9d365c624b66232d36"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>eFFT</b> (const <a class="el" href="classeFFT.html">eFFT</a> &amp;)=delete</td></tr>
+<tr class="separator:a903e81bdb7556e9d365c624b66232d36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad01320d0db4b59d62b4b6389ccc4159a" id="r_ad01320d0db4b59d62b4b6389ccc4159a"><td class="memItemLeft" align="right" valign="top"><a id="ad01320d0db4b59d62b4b6389ccc4159a" name="ad01320d0db4b59d62b4b6389ccc4159a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>eFFT</b> (<a class="el" href="classeFFT.html">eFFT</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:ad01320d0db4b59d62b4b6389ccc4159a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ff104af1c21dcaf5a9356d7fdef558a" id="r_a0ff104af1c21dcaf5a9356d7fdef558a"><td class="memItemLeft" align="right" valign="top"><a id="a0ff104af1c21dcaf5a9356d7fdef558a" name="a0ff104af1c21dcaf5a9356d7fdef558a"></a>
+<a class="el" href="classeFFT.html">eFFT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classeFFT.html">eFFT</a> &amp;)=delete</td></tr>
+<tr class="separator:a0ff104af1c21dcaf5a9356d7fdef558a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b5ab84a4545e59a8d10e0bbf97d4c3f" id="r_a4b5ab84a4545e59a8d10e0bbf97d4c3f"><td class="memItemLeft" align="right" valign="top"><a id="a4b5ab84a4545e59a8d10e0bbf97d4c3f" name="a4b5ab84a4545e59a8d10e0bbf97d4c3f"></a>
+<a class="el" href="classeFFT.html">eFFT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classeFFT.html">eFFT</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:a4b5ab84a4545e59a8d10e0bbf97d4c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a741ee02b93df85595fe76e378f1cbe9a" id="r_a741ee02b93df85595fe76e378f1cbe9a"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a741ee02b93df85595fe76e378f1cbe9a">framesize</a> () const</td></tr>
+<tr class="memdesc:a741ee02b93df85595fe76e378f1cbe9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the frame size of the FFT.  <br /></td></tr>
+<tr class="separator:a741ee02b93df85595fe76e378f1cbe9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00a7ca899559f09fb119036886710b14" id="r_a00a7ca899559f09fb119036886710b14"><td class="memItemLeft" align="right" valign="top"><a id="a00a7ca899559f09fb119036886710b14" name="a00a7ca899559f09fb119036886710b14"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b> ()</td></tr>
+<tr class="memdesc:a00a7ca899559f09fb119036886710b14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the FFT computation with zero matrix. <br /></td></tr>
+<tr class="separator:a00a7ca899559f09fb119036886710b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a814925becbaf528e5fdb2370860e5d77" id="r_a814925becbaf528e5fdb2370860e5d77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a814925becbaf528e5fdb2370860e5d77">initialize</a> (cfloatmat &amp;x, const int offset=0)</td></tr>
+<tr class="memdesc:a814925becbaf528e5fdb2370860e5d77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the FFT computation with the provided matrix.  <br /></td></tr>
+<tr class="separator:a814925becbaf528e5fdb2370860e5d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dce88356a55655c568307b5f12d58fe" id="r_a0dce88356a55655c568307b5f12d58fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0dce88356a55655c568307b5f12d58fe">update</a> (const <a class="el" href="classStimulus.html">Stimulus</a> &amp;p)</td></tr>
+<tr class="memdesc:a0dce88356a55655c568307b5f12d58fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the FFT with a single stimulus.  <br /></td></tr>
+<tr class="separator:a0dce88356a55655c568307b5f12d58fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec0dd2f6cad2d1a6b92da4c4e1e33cb8" id="r_aec0dd2f6cad2d1a6b92da4c4e1e33cb8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec0dd2f6cad2d1a6b92da4c4e1e33cb8">update</a> (cfloatmat &amp;x, const <a class="el" href="classStimulus.html">Stimulus</a> &amp;p, const unsigned int offset=0)</td></tr>
+<tr class="memdesc:aec0dd2f6cad2d1a6b92da4c4e1e33cb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the FFT with a single stimulus in the specified matrix.  <br /></td></tr>
+<tr class="separator:aec0dd2f6cad2d1a6b92da4c4e1e33cb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0efaad0786f0ca416b582b7b7452a9c8" id="r_a0efaad0786f0ca416b582b7b7452a9c8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0efaad0786f0ca416b582b7b7452a9c8">update</a> (<a class="el" href="classStimuli.html">Stimuli</a> &amp;pv)</td></tr>
+<tr class="memdesc:a0efaad0786f0ca416b582b7b7452a9c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the FFT with multiple stimuli.  <br /></td></tr>
+<tr class="separator:a0efaad0786f0ca416b582b7b7452a9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20c78351986a562159cd20bb561ee6e9" id="r_a20c78351986a562159cd20bb561ee6e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20c78351986a562159cd20bb561ee6e9">update</a> (cfloatmat &amp;x, Stimuli::iterator b0, Stimuli::iterator e0, const unsigned int offset=0)</td></tr>
+<tr class="memdesc:a20c78351986a562159cd20bb561ee6e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the FFT with multiple stimuli in the specified matrix.  <br /></td></tr>
+<tr class="separator:a20c78351986a562159cd20bb561ee6e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67bdf4519b5574ba0810ba5f0a7d5799" id="r_a67bdf4519b5574ba0810ba5f0a7d5799"><td class="memItemLeft" align="right" valign="top">const cfloatmat &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67bdf4519b5574ba0810ba5f0a7d5799">getFFT</a> () const</td></tr>
+<tr class="memdesc:a67bdf4519b5574ba0810ba5f0a7d5799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the FFT result as an Eigen matrix of complex floats.  <br /></td></tr>
+<tr class="separator:a67bdf4519b5574ba0810ba5f0a7d5799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a741ee02b93df85595fe76e378f1cbe9a" name="a741ee02b93df85595fe76e378f1cbe9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a741ee02b93df85595fe76e378f1cbe9a">&#9670;&#160;</a></span>framesize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a741ee02b93df85595fe76e378f1cbe9a">&#9670;&#160;</a></span>framesize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="classeFFT.html">eFFT</a>&lt; N &gt;::framesize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the frame size of the FFT. </p>
+<dl class="section return"><dt>Returns</dt><dd>The frame size as an unsigned integer. </dd></dl>
+
+</div>
+</div>
+<a id="a741ee02b93df85595fe76e378f1cbe9a" name="a741ee02b93df85595fe76e378f1cbe9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a741ee02b93df85595fe76e378f1cbe9a">&#9670;&#160;</a></span>framesize() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,7 +256,37 @@ template&lt;unsigned int N&gt; </div>
 </div>
 </div>
 <a id="a67bdf4519b5574ba0810ba5f0a7d5799" name="a67bdf4519b5574ba0810ba5f0a7d5799"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67bdf4519b5574ba0810ba5f0a7d5799">&#9670;&#160;</a></span>getFFT()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a67bdf4519b5574ba0810ba5f0a7d5799">&#9670;&#160;</a></span>getFFT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const cfloatmat &amp; <a class="el" href="classeFFT.html">eFFT</a>&lt; N &gt;::getFFT </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the FFT result as an Eigen matrix of complex floats. </p>
+<dl class="section return"><dt>Returns</dt><dd>The FFT result. </dd></dl>
+
+</div>
+</div>
+<a id="a67bdf4519b5574ba0810ba5f0a7d5799" name="a67bdf4519b5574ba0810ba5f0a7d5799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67bdf4519b5574ba0810ba5f0a7d5799">&#9670;&#160;</a></span>getFFT() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,7 +316,47 @@ template&lt;unsigned int N&gt; </div>
 </div>
 </div>
 <a id="a814925becbaf528e5fdb2370860e5d77" name="a814925becbaf528e5fdb2370860e5d77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a814925becbaf528e5fdb2370860e5d77">&#9670;&#160;</a></span>initialize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a814925becbaf528e5fdb2370860e5d77">&#9670;&#160;</a></span>initialize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classeFFT.html">eFFT</a>&lt; N &gt;::initialize </td>
+          <td>(</td>
+          <td class="paramtype">cfloatmat &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>offset</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the FFT computation with the provided matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Input matrix. </td></tr>
+    <tr><td class="paramname">offset</td><td>Offset for the tree structure. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a814925becbaf528e5fdb2370860e5d77" name="a814925becbaf528e5fdb2370860e5d77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a814925becbaf528e5fdb2370860e5d77">&#9670;&#160;</a></span>initialize() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,7 +396,53 @@ template&lt;unsigned int N&gt; </div>
 </div>
 </div>
 <a id="aec0dd2f6cad2d1a6b92da4c4e1e33cb8" name="aec0dd2f6cad2d1a6b92da4c4e1e33cb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec0dd2f6cad2d1a6b92da4c4e1e33cb8">&#9670;&#160;</a></span>update() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec0dd2f6cad2d1a6b92da4c4e1e33cb8">&#9670;&#160;</a></span>update() <span class="overload">[1/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classeFFT.html">eFFT</a>&lt; N &gt;::update </td>
+          <td>(</td>
+          <td class="paramtype">cfloatmat &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classStimulus.html">Stimulus</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>offset</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the FFT with a single stimulus in the specified matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The matrix to update. </td></tr>
+    <tr><td class="paramname">p</td><td>The stimulus to update. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the update changed the FFT state, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="aec0dd2f6cad2d1a6b92da4c4e1e33cb8" name="aec0dd2f6cad2d1a6b92da4c4e1e33cb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec0dd2f6cad2d1a6b92da4c4e1e33cb8">&#9670;&#160;</a></span>update() <span class="overload">[2/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,7 +488,59 @@ template&lt;unsigned int N&gt; </div>
 </div>
 </div>
 <a id="a20c78351986a562159cd20bb561ee6e9" name="a20c78351986a562159cd20bb561ee6e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20c78351986a562159cd20bb561ee6e9">&#9670;&#160;</a></span>update() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a20c78351986a562159cd20bb561ee6e9">&#9670;&#160;</a></span>update() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classeFFT.html">eFFT</a>&lt; N &gt;::update </td>
+          <td>(</td>
+          <td class="paramtype">cfloatmat &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Stimuli::iterator</td>          <td class="paramname"><span class="paramname"><em>b0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Stimuli::iterator</td>          <td class="paramname"><span class="paramname"><em>e0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>offset</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the FFT with multiple stimuli in the specified matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The matrix to update. </td></tr>
+    <tr><td class="paramname">b0</td><td>Iterator pointing to the begining of the stimuli vector. </td></tr>
+    <tr><td class="paramname">e0</td><td>Iterator pointing to the end of the stimuli vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the update changed the FFT state, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a20c78351986a562159cd20bb561ee6e9" name="a20c78351986a562159cd20bb561ee6e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20c78351986a562159cd20bb561ee6e9">&#9670;&#160;</a></span>update() <span class="overload">[4/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -357,7 +592,43 @@ template&lt;unsigned int N&gt; </div>
 </div>
 </div>
 <a id="a0dce88356a55655c568307b5f12d58fe" name="a0dce88356a55655c568307b5f12d58fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0dce88356a55655c568307b5f12d58fe">&#9670;&#160;</a></span>update() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dce88356a55655c568307b5f12d58fe">&#9670;&#160;</a></span>update() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classeFFT.html">eFFT</a>&lt; N &gt;::update </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classStimulus.html">Stimulus</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the FFT with a single stimulus. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>The stimulus to update. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the update changed the FFT state, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a0dce88356a55655c568307b5f12d58fe" name="a0dce88356a55655c568307b5f12d58fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dce88356a55655c568307b5f12d58fe">&#9670;&#160;</a></span>update() <span class="overload">[6/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -393,7 +664,7 @@ template&lt;unsigned int N&gt; </div>
 </div>
 </div>
 <a id="a0efaad0786f0ca416b582b7b7452a9c8" name="a0efaad0786f0ca416b582b7b7452a9c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0efaad0786f0ca416b582b7b7452a9c8">&#9670;&#160;</a></span>update() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0efaad0786f0ca416b582b7b7452a9c8">&#9670;&#160;</a></span>update() <span class="overload">[7/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -428,8 +699,45 @@ template&lt;unsigned int N&gt; </div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="efft_8hpp_source.html">efft.hpp</a></li>
+<a id="a0efaad0786f0ca416b582b7b7452a9c8" name="a0efaad0786f0ca416b582b7b7452a9c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0efaad0786f0ca416b582b7b7452a9c8">&#9670;&#160;</a></span>update() <span class="overload">[8/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classeFFT.html">eFFT</a>&lt; N &gt;::update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStimuli.html">Stimuli</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pv</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the FFT with multiple stimuli. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pv</td><td>The stimuli to update. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the update changed the FFT state, false otherwise. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>include/<a class="el" href="include_2efft_8hpp_source.html">efft.hpp</a></li>
+<li>python/include/<a class="el" href="python_2include_2efft_8hpp_source.html">efft.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
