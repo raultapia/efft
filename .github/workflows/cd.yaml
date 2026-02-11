@@ -164,3 +164,9 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: publish
+      - name: Test pip install
+        run: |
+          python -m venv test-env
+          source test-env/bin/activate
+          pip install efft
+          python -c "import efft; print('efft installed successfully')"
