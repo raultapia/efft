@@ -92,6 +92,8 @@ efft.update(events)
 fft_result = efft.get_fft()       # Retrieve the updated FFT result
 ```
 
+You have also a quickstart tutorial at `examples/efft-quickstar.ipynb`.
+
 ## 📜 Citation
 
 If you use this work in an academic context, please cite the following publication:
