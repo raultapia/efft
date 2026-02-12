@@ -86,6 +86,7 @@ jobs:
           CIBW_ARCHS_WINDOWS: "AMD64"
           CIBW_ARCHS_MACOS: "x86_64"
           CIBW_ENVIRONMENT_MACOS: "MACOSX_DEPLOYMENT_TARGET=10.13"
+          CIBW_ENVIRONMENT_WINDOWS: "SKBUILD_BUILD_DIR=build"
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact }}
