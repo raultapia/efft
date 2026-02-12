@@ -7,6 +7,14 @@
 We introduce eFFT, an efficient method for the calculation of the exact Fourier transform of an asynchronous event stream. It is based on keeping the matrices involved in the Radix-2 FFT algorithm in a tree data structure and updating them with the new events, extensively reusing computations, and avoiding unnecessary calculations while preserving exactness. eFFT can operate event-by-event, requiring for each event only a partial recalculation of the tree since most of the stored data are reused. It can also operate with event packets, using the tree structure to detect and avoid unnecessary and repeated calculations when integrating the different events within each packet to further reduce the number of operations.
 </p>
 
+[![CI](https://github.com/raultapia/efft/actions/workflows/ci.yaml/badge.svg)](https://github.com/raultapia/efft/actions)
+[![CD](https://github.com/raultapia/efft/actions/workflows/cd.yaml/badge.svg)](https://github.com/raultapia/efft/actions)
+[![License](https://img.shields.io/github/license/raultapia/efft)](https://github.com/raultapia/efft/tree/main/LICENSE)
+[![Release](https://img.shields.io/github/v/release/raultapia/efft)](https://github.com/raultapia/efft/releases)
+[![PyPI](https://img.shields.io/pypi/v/efft.svg)](https://pypi.org/project/efft/)
+[![Docker](https://img.shields.io/badge/docker-ready-blue)](https://github.com/users/raultapia/packages/container/package/efft)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18520754.svg)](https://doi.org/10.5281/zenodo.18520754)
+
 ## ⚙️ Installation
 
 eFFT is provided as a header-only file for easy integration and relies solely on C++ standard and [Eigen3](https://eigen.tuxfamily.org/) libraries.
