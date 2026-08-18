@@ -1,8 +1,8 @@
 var hierarchy =
 [
-    [ "Bindings< N >", "structBindings.html", null ],
-    [ "eFFT< N >", "classeFFT.html", null ],
-    [ "RandEventGenerator< N >", "classRandEventGenerator.html", null ],
+    [ "Bindings&lt; N &gt;", "structBindings.html", null ],
+    [ "eFFT&lt; N &gt;", "classeFFT.html", null ],
+    [ "RandEventGenerator&lt; N &gt;", "classRandEventGenerator.html", null ],
     [ "Stimulus", "classStimulus.html", null ],
     [ "std::vector", null, [
       [ "Stimuli", "classStimuli.html", null ],

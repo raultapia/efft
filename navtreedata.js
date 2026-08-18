@@ -34,14 +34,14 @@ var NAVTREE =
       [ "📝 License", "index.html#autotoc_md32", null ],
       [ "📬 Contact", "index.html#autotoc_md33", null ],
       [ "How to Contribute", "md_CONTRIBUTING.html#autotoc_md2", [
-        [ "Fork the Repository", "md_CONTRIBUTING.html#autotoc_md3", null ],
-        [ "Clone the Repository", "md_CONTRIBUTING.html#autotoc_md4", null ],
-        [ "Create a Branch", "md_CONTRIBUTING.html#autotoc_md5", null ],
-        [ "Make Changes", "md_CONTRIBUTING.html#autotoc_md6", null ],
-        [ "Test Your Changes", "md_CONTRIBUTING.html#autotoc_md7", null ],
-        [ "Commit Your Changes", "md_CONTRIBUTING.html#autotoc_md8", null ],
-        [ "Push Your Changes", "md_CONTRIBUTING.html#autotoc_md9", null ],
-        [ "Open a Pull Request", "md_CONTRIBUTING.html#autotoc_md10", null ]
+        [ "1. Fork the Repository", "md_CONTRIBUTING.html#autotoc_md3", null ],
+        [ "2. Clone the Repository", "md_CONTRIBUTING.html#autotoc_md4", null ],
+        [ "3. Create a Branch", "md_CONTRIBUTING.html#autotoc_md5", null ],
+        [ "4. Make Changes", "md_CONTRIBUTING.html#autotoc_md6", null ],
+        [ "5. Test Your Changes", "md_CONTRIBUTING.html#autotoc_md7", null ],
+        [ "6. Commit Your Changes", "md_CONTRIBUTING.html#autotoc_md8", null ],
+        [ "7. Push Your Changes", "md_CONTRIBUTING.html#autotoc_md9", null ],
+        [ "8. Open a Pull Request", "md_CONTRIBUTING.html#autotoc_md10", null ]
       ] ],
       [ "Reporting Issues", "md_CONTRIBUTING.html#autotoc_md12", null ],
       [ "Submitting Changes", "md_CONTRIBUTING.html#autotoc_md14", null ],
@@ -68,5 +68,6 @@ var NAVTREEINDEX =
 "annotated.html"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronization';
-var SYNCOFFMSG = 'click to enable panel synchronization';
+const SYNCONMSG = 'click to disable panel synchronization';
+const SYNCOFFMSG = 'click to enable panel synchronization';
+const LISTOFALLMEMBERS = 'List of all members';
