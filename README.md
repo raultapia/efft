@@ -104,7 +104,7 @@ You have also a quickstart tutorial at `examples/efft-quickstar.ipynb`.
 
 ## 📜 Citation
 
-If you use this work in an academic context, please cite the following publication:
+If you use this work in an academic context, please cite the following publications:
 
 > R. Tapia, J.R. Martínez-de Dios, A. Ollero
 > **eFFT: An Event-based Method for the Efficient Computation of Exact Fourier Transforms**,
@@ -120,6 +120,23 @@ If you use this work in an academic context, please cite the following publicati
   number={12},
   pages={9630-9647},
   doi={10.1109/TPAMI.2024.3422209}
+}
+```
+
+> R. Tapia, J.R. Martínez-de Dios, A. Ollero
+> **eFFT-C++: An Open-Source Implementation of the Event-Based Fast Fourier Transform**,
+> Journal of Open Research Software, 2026.
+
+```bibtex
+@article{tapia2026efft,
+  author={Tapia, R. and Martínez-de Dios, J.R. and Ollero, A.},
+  journal={Journal of Open Research Software},
+  title={{eFFT-C++}: An Open-Source Implementation of the Event-Based Fast {Fourier} Transform},
+  year={2026},
+  volume={14},
+  number={1},
+  pages={27},
+  doi={10.5334/jors.642}
 }
 ```
 
