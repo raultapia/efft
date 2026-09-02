@@ -10,6 +10,7 @@ RUN apt -y install libfftw3-dev
 RUN apt -y install libgtest-dev
 RUN apt -y install libbenchmark-dev
 RUN apt -y install python3
+RUN apt -y install python3-dev
 RUN apt -y install python3-pip
 RUN apt -y install python3-venv
 

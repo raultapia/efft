@@ -20,7 +20,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(eigen)
 
 find_package(
-  Python 3.8
+  Python 3.9
   COMPONENTS Interpreter Development.Module
   REQUIRED)
 

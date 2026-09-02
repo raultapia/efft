@@ -10,7 +10,7 @@ authors = [{ name = "Raul Tapia", email = "raultapia@us.es" }]
 urls = { homepage = "https://github.com/raultapia/efft", repository = "https://github.com/raultapia/efft" }
 readme = "README.md"
 license = { text = "GPL-3.0-later" }
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = ["numpy>=1.21.0"]
 
 [project.optional-dependencies]
